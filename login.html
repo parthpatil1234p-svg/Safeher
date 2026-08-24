@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Login to your SafeHer account to access emergency tools, SOS, and your safety dashboard." />
+  <title>Login – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Auth Layout — centered card -->
+  <main class="auth-page" id="main-content">
+    <div class="auth-card" role="main">
+
+      <!-- Logo -->
+      <div class="auth-card__logo">
+        <a href="index.html" aria-label="SafeHer home">
+          <span class="auth-card__logo-text">🛡️ SafeHer</span>
+        </a>
+        <span class="auth-card__logo-sub">Women's Safety System</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="auth-card__title">Welcome Back</h1>
+      <p class="auth-card__subtitle">Sign in to access your safety dashboard.</p>
+
+      <!-- Login Form -->
+      <form id="login-form" method="post" action="#" novalidate aria-label="Login form">
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="login-email">
+            Email Address
+          </label>
+          <input
+            class="form-input"
+            type="email"
+            id="login-email"
+            name="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+            aria-required="true"
+            aria-describedby="email-error"
+          />
+          <span class="form-error" id="email-error" role="alert"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="login-password">
+            Password
+          </label>
+          <input
+            class="form-input"
+            type="password"
+            id="login-password"
+            name="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            required
+            aria-required="true"
+            aria-describedby="password-error"
+          />
+          <span class="form-error" id="password-error" role="alert"></span>
+        </div>
+
+        <!-- Remember me & Forgot password -->
+        <div class="flex justify-between items-center" style="margin-bottom: var(--space-5); flex-wrap: wrap; gap: var(--space-3);">
+          <div class="form-checkbox-group">
+            <input
+              class="form-checkbox"
+              type="checkbox"
+              id="remember-me"
+              name="remember_me"
+            />
+            <label class="form-checkbox-label" for="remember-me">Remember me</label>
+          </div>
+          <span class="text-muted" style="font-size: var(--font-size-sm);">
+            <!-- Forgot password link — will be functional in Step 3 -->
+            <span aria-label="Forgot password feature not yet available">Forgot password? (Coming soon)</span>
+          </span>
+        </div>
+
+        <!-- Prototype notice -->
+        <div class="alert alert--info" role="note" style="margin-bottom: var(--space-5);" aria-live="polite">
+          <span class="alert__icon" aria-hidden="true">ℹ️</span>
+          <span>
+            <strong>Demo:</strong> Backend authentication is not yet implemented.
+            Submitting will redirect to the dashboard for UI demonstration.
+          </span>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn btn--primary btn--block" type="submit" id="login-submit-btn">
+          Sign In
+        </button>
+
+      </form>
+
+      <!-- Register link -->
+      <div class="auth-card__footer">
+        Don't have an account?
+        <a href="register.html">Create one free</a>
+      </div>
+
+      <!-- Back to home -->
+      <div class="auth-card__footer" style="margin-top: var(--space-3);">
+        <a href="index.html" aria-label="Back to SafeHer home page">← Back to Home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/validation.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

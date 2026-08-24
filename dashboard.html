@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer Dashboard – Access SOS, emergency contacts, live location, helplines and all safety features from one place." />
+  <title>Dashboard – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  DASHBOARD HEADER                                               -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">
+        🛡️ SafeHer
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="dashboard-nav-list"
+        type="button"
+        style="filter: invert(1);"
+      >
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav aria-label="Dashboard navigation">
+        <ul class="dashboard-nav__list" id="dashboard-nav-list" role="list">
+          <li><a class="dashboard-nav__link" href="index.html">Home</a></li>
+          <li><a class="dashboard-nav__link active" href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a class="dashboard-nav__link" href="profile.html">Profile</a></li>
+          <li>
+            <!-- Logout placeholder — will be functional in Step 3 -->
+            <button
+              class="btn btn--sm"
+              style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3);"
+              type="button"
+              aria-label="Logout — not yet functional in this prototype"
+              onclick="alert('Demo: Logout will be implemented with Flask backend in Step 3.')"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  MAIN CONTENT                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── DASHBOARD HERO / SOS SECTION ─────────────────────────── -->
+    <section
+      class="section--sm"
+      style="background: linear-gradient(135deg, var(--color-secondary-dark) 0%, #2e3a6e 100%); color: white;"
+      aria-labelledby="dashboard-greeting"
+    >
+      <div class="container text-center">
+        <h1 id="dashboard-greeting" style="color: white; margin-bottom: var(--space-2); font-size: var(--font-size-2xl);">
+          Your Safety Dashboard
+        </h1>
+        <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--space-8);">
+          Access all your safety tools quickly. In an emergency, tap SOS first.
+        </p>
+
+        <!-- Prominent SOS Button — highest priority visual element -->
+        <div class="sos-btn-wrap">
+          <a
+            href="sos.html"
+            class="sos-btn"
+            aria-label="Activate SOS emergency assistance"
+            role="button"
+          >
+            <span aria-hidden="true">SOS</span>
+            <span class="sos-btn__label">Tap to Activate</span>
+          </a>
+          <p style="color: rgba(255,255,255,0.7); font-size: var(--font-size-xs); max-width: 280px;">
+            This will activate the emergency workflow and alert your trusted contacts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EMERGENCY READINESS STATUS ──────────────────────────── -->
+    <section class="section--sm" style="background-color: var(--color-bg-secondary);" aria-labelledby="readiness-heading">
+      <div class="container">
+        <h2 id="readiness-heading" style="font-size: var(--font-size-lg); margin-bottom: var(--space-5); color: var(--color-secondary-dark);">
+          ⚡ Emergency Readiness
+        </h2>
+
+        <div class="grid grid--3" role="list" aria-label="Emergency readiness indicators">
+
+          <div class="status-indicator" role="listitem">
+            <span class="status-dot status-dot--yellow" aria-hidden="true"></span>
+            <span class="status-indicator__label">Emergency Contacts</span>
+            <span class="status-indicator__value">
+              <a href="contacts.html" class="text-primary" style="font-size: var(--font-size-xs);">
+                Set Up →
+              </a>
+            </span>
+          </div>
+
+          <div class="status-indicator" role="listitem">
+            <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+            <span class="status-indicator__label">Location Permission</span>
+            <span class="status-indicator__value">
+              <a href="location.html" class="text-primary" style="font-size: var(--font-size-xs);">
+                Enable →
+              </a>
+            </span>
+          </div>
+
+          <div class="status-indicator" role="listitem">
+            <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+            <span class="status-indicator__label">Voice Activation</span>
+            <span class="status-indicator__value">
+              <span class="text-muted" style="font-size: var(--font-size-xs);">Coming Soon</span>
+            </span>
+          </div>
+
+        </div>
+
+        <p class="text-muted mt-4" style="font-size: var(--font-size-xs);">
+          These are placeholder statuses. Real-time status will be implemented in Step 3.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── FEATURE CARDS GRID ────────────────────────────────────── -->
+    <section class="section--sm" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading" style="font-size: var(--font-size-lg); margin-bottom: var(--space-5); color: var(--color-secondary-dark);">
+          🧰 All Safety Tools
+        </h2>
+
+        <div class="dashboard-grid" role="list">
+
+          <!-- SOS — highest priority -->
+          <a
+            class="dashboard-card dashboard-card--sos"
+            href="sos.html"
+            role="listitem"
+            aria-label="SOS Emergency — activate emergency assistance"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">🆘</span>
+            <span class="dashboard-card__title">SOS</span>
+            <span class="dashboard-card__desc">Emergency Alert</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="dashboard.html"
+            role="listitem"
+            aria-label="Voice Activation — trigger SOS by voice"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">🎙️</span>
+            <span class="dashboard-card__title">Voice Activation</span>
+            <span class="dashboard-card__desc">Coming in Step 4</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="contacts.html"
+            role="listitem"
+            aria-label="Emergency Contacts — manage your trusted contacts"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">👥</span>
+            <span class="dashboard-card__title">Emergency Contacts</span>
+            <span class="dashboard-card__desc">Manage Contacts</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="location.html"
+            role="listitem"
+            aria-label="Live Location — share your location"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">📍</span>
+            <span class="dashboard-card__title">Live Location</span>
+            <span class="dashboard-card__desc">Share Location</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="helplines.html"
+            role="listitem"
+            aria-label="Emergency Helplines — view emergency numbers"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">📞</span>
+            <span class="dashboard-card__title">Helplines</span>
+            <span class="dashboard-card__desc">Emergency Numbers</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="report.html"
+            role="listitem"
+            aria-label="Incident Report — document an incident"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">📝</span>
+            <span class="dashboard-card__title">Report Incident</span>
+            <span class="dashboard-card__desc">Document Events</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="safety-tips.html"
+            role="listitem"
+            aria-label="Safety Tips — read personal safety guidance"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">💡</span>
+            <span class="dashboard-card__title">Safety Tips</span>
+            <span class="dashboard-card__desc">Stay Prepared</span>
+          </a>
+
+          <a
+            class="dashboard-card"
+            href="profile.html"
+            role="listitem"
+            aria-label="My Profile — manage your safety profile"
+          >
+            <span class="dashboard-card__icon" aria-hidden="true">👤</span>
+            <span class="dashboard-card__title">My Profile</span>
+            <span class="dashboard-card__desc">Account Settings</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROTOTYPE NOTICE ──────────────────────────────────────── -->
+    <section class="section--sm" aria-label="Prototype notice">
+      <div class="container">
+        <div class="alert alert--warning" role="note">
+          <span class="alert__icon" aria-hidden="true">⚠️</span>
+          <div>
+            <strong>Academic Prototype Notice:</strong> This is a frontend demonstration of SafeHer.
+            Emergency features shown here are not connected to real services. In a genuine emergency,
+            call <strong>112</strong> (National Emergency) or <strong>100</strong> (Police) immediately.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (simplified for dashboard) -->
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-6) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer — Academic Mini Project |
+        <a href="index.html" style="color: var(--color-primary);">Home</a> |
+        <a href="contact.html" style="color: var(--color-primary);">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

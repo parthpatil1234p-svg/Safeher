@@ -1,0 +1,390 @@
+/* =====================================================
+   SafeHer — Women's Safety & Emergency Assistance
+   css/responsive.css — Responsive / Media Queries
+   ===================================================== */
+
+/* =====================================================
+   BREAKPOINT REFERENCE
+   xs  : < 480px    (small mobile)
+   sm  : ≥ 480px    (mobile)
+   md  : ≥ 768px    (tablet portrait)
+   lg  : ≥ 1024px   (tablet landscape / small desktop)
+   xl  : ≥ 1200px   (desktop)
+   2xl : ≥ 1440px   (large desktop)
+   ===================================================== */
+
+/* =====================================================
+   MOBILE FIRST — base styles are for mobile.
+   Layers below add styles for larger screens.
+   ===================================================== */
+
+/* ----- SMALL MOBILE  (max-width: 479px) ----- */
+@media (max-width: 479px) {
+
+  :root {
+    --container-padding: var(--space-4);
+  }
+
+  h1 { font-size: var(--font-size-2xl); }
+  h2 { font-size: var(--font-size-xl); }
+  h3 { font-size: var(--font-size-lg); }
+
+  /* Hero */
+  .hero {
+    padding: var(--space-16) 0;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  /* Navigation */
+  .site-header {
+    height: auto;
+    min-height: var(--nav-height);
+  }
+
+  /* Auth */
+  .auth-card {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  /* SOS button */
+  .sos-btn {
+    width: 150px;
+    height: 150px;
+    font-size: var(--font-size-xl);
+  }
+
+  /* Steps */
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .steps::before {
+    display: none;
+  }
+
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA actions */
+  .cta-section__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Dashboard grid */
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contact card */
+  .contact-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Helpline card */
+  .helpline-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .helpline-card__number {
+    margin-left: 0;
+    font-size: var(--font-size-xl);
+  }
+
+  /* Grids */
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Page header */
+  .page-header__title {
+    font-size: var(--font-size-2xl);
+  }
+
+}
+
+/* ----- MOBILE  (max-width: 767px) ----- */
+@media (max-width: 767px) {
+
+  :root {
+    --container-padding: var(--space-5);
+  }
+
+  /* Navigation — show hamburger, hide nav links */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .main-nav__list {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-4) var(--space-6);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .main-nav__list.nav-open {
+    display: flex;
+  }
+
+  .main-nav__list .btn--primary {
+    width: 100%;
+  }
+
+  .site-header {
+    position: sticky;
+    z-index: var(--z-sticky);
+  }
+
+  .main-nav {
+    gap: var(--space-2);
+  }
+
+  /* Dashboard nav */
+  .dashboard-nav__list {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-dark);
+    padding: var(--space-4) var(--space-6);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .dashboard-nav__list.nav-open {
+    display: flex;
+  }
+
+  /* Hero */
+  .hero {
+    padding: var(--space-20) 0;
+    text-align: center;
+  }
+
+  .hero__content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  /* Sections */
+  .section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  /* Section heading */
+  .section-heading {
+    margin-bottom: var(--space-8);
+  }
+
+  /* Steps */
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .steps::before {
+    display: none;
+  }
+
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  /* Grids */
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: var(--space-16) 0;
+  }
+
+  /* Auth card */
+  .auth-page {
+    padding: var(--space-6) var(--space-4);
+    align-items: flex-start;
+  }
+}
+
+/* ----- TABLET PORTRAIT  (768px — 1023px) ----- */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* Nav links visible but may wrap */
+  .main-nav__list {
+    gap: var(--space-2);
+  }
+
+  .main-nav__link {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  /* Grids */
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Dashboard */
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+/* ----- TABLET LANDSCAPE / SMALL DESKTOP  (1024px — 1199px) ----- */
+@media (min-width: 1024px) and (max-width: 1199px) {
+
+  /* All nav visible */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  /* Dashboard grid */
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+/* ----- DESKTOP  (≥ 1200px) ----- */
+@media (min-width: 1200px) {
+
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: 3.5rem;
+  }
+
+  /* Dashboard grid — wider layout */
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+/* ----- LARGE DESKTOP  (≥ 1440px) ----- */
+@media (min-width: 1440px) {
+
+  :root {
+    --container-max: 1320px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+/* ----- PRINT STYLES ----- */
+@media print {
+
+  .site-header,
+  .site-footer,
+  .dashboard-header,
+  .nav-toggle,
+  .btn {
+    display: none;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+  }
+
+}
+
+/* ----- REDUCED MOTION ----- */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .sos-btn {
+    animation: none;
+  }
+
+}
+
+/* ----- HIGH CONTRAST MODE ----- */
+@media (forced-colors: active) {
+
+  .btn {
+    forced-color-adjust: none;
+  }
+
+  .status-dot {
+    border: 1px solid ButtonText;
+  }
+
+}

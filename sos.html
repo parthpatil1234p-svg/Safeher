@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer SOS – Emergency assistance activation. Alert trusted contacts and prepare emergency workflow." />
+  <title>SOS Emergency – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">
+        🛡️ SafeHer
+      </a>
+      <nav aria-label="Page navigation">
+        <ul class="dashboard-nav__list" style="display: flex;" role="list">
+          <li><a class="dashboard-nav__link" href="dashboard.html">← Dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="dashboard.html">Dashboard</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">SOS</span>
+        </nav>
+        <h1 class="page-header__title">🆘 Emergency SOS</h1>
+        <p class="page-header__subtitle">
+          Activate the emergency workflow to alert your trusted contacts.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="sos-heading">
+      <div class="container">
+
+        <!-- Prototype Disclaimer — PROMINENTLY placed -->
+        <div class="alert alert--warning" role="alert" aria-live="assertive" style="margin-bottom: var(--space-8);">
+          <span class="alert__icon" aria-hidden="true">⚠️</span>
+          <div>
+            <strong>Frontend Demonstration Only:</strong> This SOS button does not contact police,
+            ambulance or any emergency service. It is a UI prototype. In a real emergency, call
+            <strong>112</strong> (National Emergency) immediately.
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start;">
+
+          <!-- SOS Activation -->
+          <div>
+            <h2 id="sos-heading" style="margin-bottom: var(--space-6);">Activate Emergency Assistance</h2>
+
+            <!-- SOS Status Message -->
+            <div id="sos-status" class="alert alert--info" role="status" aria-live="polite" style="margin-bottom: var(--space-6);">
+              <span class="alert__icon" aria-hidden="true">ℹ️</span>
+              <span>Emergency assistance is ready. Press the SOS button to activate the demo workflow.</span>
+            </div>
+
+            <!-- SOS Button -->
+            <div class="sos-btn-wrap" style="margin-bottom: var(--space-6);">
+              <button
+                class="sos-btn"
+                id="sos-button"
+                type="button"
+                aria-label="Activate SOS emergency workflow (demonstration only)"
+              >
+                <span aria-hidden="true">SOS</span>
+                <span class="sos-btn__label">Hold to Activate</span>
+              </button>
+            </div>
+
+            <!-- Cancel Button (hidden until SOS is activated) -->
+            <div class="text-center">
+              <button
+                class="btn btn--secondary hidden"
+                id="sos-cancel"
+                type="button"
+                aria-label="Cancel SOS emergency workflow"
+              >
+                ✕ Cancel SOS
+              </button>
+            </div>
+
+            <!-- Emergency Instruction -->
+            <div class="alert alert--danger" style="margin-top: var(--space-6);" role="note">
+              <span class="alert__icon" aria-hidden="true">🚨</span>
+              <div>
+                <strong>In a real emergency:</strong> Call <strong>112</strong> immediately.
+                Do not rely on any app as your primary emergency response method.
+              </div>
+            </div>
+          </div>
+
+          <!-- Status Panel -->
+          <div>
+            <h2 style="margin-bottom: var(--space-5); font-size: var(--font-size-lg);">Emergency Status</h2>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+
+              <!-- Location -->
+              <div class="status-indicator">
+                <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+                <div>
+                  <p class="status-indicator__label">Location Status</p>
+                  <p style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
+                    Not retrieved yet
+                  </p>
+                </div>
+                <a href="location.html" class="btn btn--ghost btn--sm" aria-label="Go to location page">
+                  Enable
+                </a>
+              </div>
+
+              <!-- Trusted Contacts -->
+              <div class="status-indicator">
+                <span class="status-dot status-dot--yellow" aria-hidden="true"></span>
+                <div>
+                  <p class="status-indicator__label">Trusted Contacts</p>
+                  <p style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
+                    Demo contacts loaded
+                  </p>
+                </div>
+                <a href="contacts.html" class="btn btn--ghost btn--sm" aria-label="Manage emergency contacts">
+                  Manage
+                </a>
+              </div>
+
+              <!-- Voice -->
+              <div class="status-indicator">
+                <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+                <div>
+                  <p class="status-indicator__label">Voice Activation</p>
+                  <p style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
+                    Not configured (Step 4)
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Trusted contacts summary -->
+            <div style="margin-top: var(--space-6);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-3);">
+                👥 Who Will Be Alerted
+              </h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div class="contact-card">
+                  <div class="contact-card__info">
+                    <p class="contact-card__name">Mom</p>
+                    <p class="contact-card__detail">Mother · +91 98765 XXXXX</p>
+                  </div>
+                  <span class="badge badge--warning">Demo</span>
+                </div>
+                <div class="contact-card">
+                  <div class="contact-card__info">
+                    <p class="contact-card__name">Priya Sharma</p>
+                    <p class="contact-card__detail">Friend · +91 87654 XXXXX</p>
+                  </div>
+                  <span class="badge badge--warning">Demo</span>
+                </div>
+              </div>
+              <p class="text-muted mt-4" style="font-size: var(--font-size-xs);">
+                These are placeholder contacts.
+                <a href="contacts.html">Manage real contacts →</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-8);">
+          <a class="back-link" href="dashboard.html" aria-label="Return to safety dashboard">
+            ← Back to Dashboard
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer — Academic Prototype |
+        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/sos.js" defer></script>
+
+</body>
+</html>

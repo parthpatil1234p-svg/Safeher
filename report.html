@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer Incident Report – Securely document incidents with optional anonymity. Academic prototype." />
+  <title>Report Incident – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">🛡️ SafeHer</a>
+      <nav aria-label="Page navigation">
+        <ul class="dashboard-nav__list" style="display: flex;" role="list">
+          <li><a class="dashboard-nav__link" href="dashboard.html">← Dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="dashboard.html">Dashboard</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Report Incident</span>
+        </nav>
+        <h1 class="page-header__title">📝 Report an Incident</h1>
+        <p class="page-header__subtitle">
+          Document an incident for your personal records. Optional anonymity supported.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="report-heading">
+      <div class="container" style="max-width: 760px;">
+
+        <h2 id="report-heading" class="visually-hidden">Incident report form</h2>
+
+        <!-- Prototype Disclaimer -->
+        <div class="alert alert--warning" role="note" style="margin-bottom: var(--space-6);">
+          <span class="alert__icon" aria-hidden="true">⚠️</span>
+          <div>
+            <strong>Academic Prototype Disclaimer:</strong> This form does not submit reports to
+            police, authorities or any external service. Data is not stored. This is a
+            frontend UI demonstration only. For immediate help, call <strong>112</strong>.
+          </div>
+        </div>
+
+        <!-- Status message area -->
+        <div id="report-submit-status" role="status" aria-live="polite" style="margin-bottom: var(--space-5);"></div>
+
+        <form
+          id="report-form"
+          method="post"
+          action="#"
+          novalidate
+          aria-label="Incident report form"
+          enctype="multipart/form-data"
+        >
+
+          <!-- Incident Details Fieldset -->
+          <fieldset style="border: 1.5px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6);">
+            <legend style="font-weight: var(--font-weight-bold); padding: 0 var(--space-3); font-size: var(--font-size-md);">
+              Incident Details
+            </legend>
+
+            <!-- Incident Type -->
+            <div class="form-group">
+              <label class="form-label form-label--required" for="incident-type">Incident Type</label>
+              <select
+                class="form-select"
+                id="incident-type"
+                name="incident_type"
+                required
+                aria-required="true"
+                aria-describedby="type-error"
+              >
+                <option value="" disabled selected>Select incident type</option>
+                <option value="harassment">Harassment</option>
+                <option value="stalking">Stalking</option>
+                <option value="assault">Assault</option>
+                <option value="domestic_violence">Domestic Violence</option>
+                <option value="cyber_harassment">Cyber Harassment</option>
+                <option value="eve_teasing">Eve Teasing</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="type-error" role="alert"></span>
+            </div>
+
+            <!-- Date and Time -->
+            <div class="grid grid--2" style="gap: var(--space-4);">
+              <div class="form-group">
+                <label class="form-label form-label--required" for="incident-date">Date of Incident</label>
+                <input
+                  class="form-input"
+                  type="date"
+                  id="incident-date"
+                  name="incident_date"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="incident-time">Approximate Time</label>
+                <input
+                  class="form-input"
+                  type="time"
+                  id="incident-time"
+                  name="incident_time"
+                  aria-describedby="time-hint"
+                />
+                <span class="form-hint" id="time-hint">Optional — approximate is fine.</span>
+              </div>
+            </div>
+
+            <!-- Location of Incident -->
+            <div class="form-group">
+              <label class="form-label" for="incident-location">Location of Incident</label>
+              <input
+                class="form-input"
+                type="text"
+                id="incident-location"
+                name="incident_location"
+                placeholder="Area, street, city or description of location"
+                aria-describedby="location-hint"
+              />
+              <span class="form-hint" id="location-hint">
+                Provide as much or as little detail as you are comfortable sharing.
+              </span>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label class="form-label form-label--required" for="incident-description">Description</label>
+              <textarea
+                class="form-textarea"
+                id="incident-description"
+                name="description"
+                rows="6"
+                placeholder="Describe what happened in your own words. You may remain anonymous."
+                required
+                aria-required="true"
+                aria-describedby="description-hint description-error"
+                style="min-height: 150px;"
+              ></textarea>
+              <span class="form-hint" id="description-hint">
+                Your description is stored only for your personal record in this prototype.
+              </span>
+              <span class="form-error" id="description-error" role="alert"></span>
+            </div>
+
+          </fieldset>
+
+          <!-- Evidence Fieldset -->
+          <fieldset style="border: 1.5px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6);">
+            <legend style="font-weight: var(--font-weight-bold); padding: 0 var(--space-3); font-size: var(--font-size-md);">
+              Evidence (Optional)
+            </legend>
+
+            <div class="form-group">
+              <label class="form-label" for="incident-evidence">Upload Evidence</label>
+              <input
+                class="form-input"
+                type="file"
+                id="incident-evidence"
+                name="evidence"
+                accept="image/*,video/*,.pdf"
+                aria-describedby="evidence-hint"
+                style="padding: var(--space-2);"
+              />
+              <span class="form-hint" id="evidence-hint">
+                Photos, videos or documents. Accepted: images, video, PDF.
+                <strong>Note:</strong> File upload is UI-only in this prototype — files are not processed or stored.
+              </span>
+            </div>
+          </fieldset>
+
+          <!-- Privacy Options -->
+          <fieldset style="border: 1.5px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6);">
+            <legend style="font-weight: var(--font-weight-bold); padding: 0 var(--space-3); font-size: var(--font-size-md);">
+              Privacy Options
+            </legend>
+
+            <div class="form-checkbox-group">
+              <input
+                class="form-checkbox"
+                type="checkbox"
+                id="report-anonymous"
+                name="anonymous"
+                aria-describedby="anonymous-desc"
+              />
+              <label class="form-checkbox-label" for="report-anonymous">
+                <strong>Submit anonymously</strong> — your personal details will not be attached to this report.
+                <span id="anonymous-desc" style="display: block; margin-top: var(--space-1); color: var(--color-text-muted); font-size: var(--font-size-xs);">
+                  In the full version, identifying information will be stripped from the database record.
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Submit -->
+          <button class="btn btn--primary btn--lg btn--block" type="submit" id="report-submit-btn">
+            Submit Report
+          </button>
+
+        </form>
+
+        <div style="margin-top: var(--space-8);">
+          <a class="back-link" href="dashboard.html" aria-label="Return to dashboard">
+            ← Back to Dashboard
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer |
+        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/report.js" defer></script>
+
+</body>
+</html>

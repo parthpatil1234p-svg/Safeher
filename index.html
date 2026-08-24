@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer – Women's Safety and Emergency Assistance System. Quick access to SOS, emergency contacts, live location and safety resources." />
+  <meta name="keywords" content="women safety, SOS, emergency contacts, location sharing, helplines, incident reporting" />
+  <title>SafeHer – Women's Safety &amp; Emergency Assistance</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Skip navigation for accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  SITE HEADER / NAVIGATION                                       -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <!-- Logo -->
+      <a href="index.html" class="site-logo" aria-label="SafeHer — Women's Safety Home">
+        <span class="logo-icon" aria-hidden="true">🛡️</span>
+        <span>
+          SafeHer
+          <span class="logo-subtitle">Women's Safety System</span>
+        </span>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav-list"
+        type="button"
+      >
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Navigation -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="main-nav__list" id="main-nav-list" role="list">
+          <li><a class="main-nav__link active" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="main-nav__link" href="#features">Features</a></li>
+          <li><a class="main-nav__link" href="safety-tips.html">Safety Tips</a></li>
+          <li><a class="main-nav__link" href="contact.html">Contact</a></li>
+          <li><a class="main-nav__link" href="login.html">Login</a></li>
+          <li>
+            <a class="btn btn--primary btn--sm" href="register.html">Register Free</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  MAIN CONTENT                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO SECTION ──────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__badge" aria-hidden="true">
+            🛡️ Women's Safety Platform
+          </div>
+
+          <h1 class="hero__title" id="hero-heading">
+            Safety Support When<br />
+            <span class="highlight">Every Second Matters</span>
+          </h1>
+
+          <p class="hero__description">
+            SafeHer provides quick access to SOS tools, emergency contacts, live location
+            sharing and curated safety resources — all in one place, designed specifically
+            for women's safety and peace of mind.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="register.html">
+              🚀 Get Started Free
+            </a>
+            <a class="btn btn--outline-white btn--lg" href="dashboard.html">
+              📊 Emergency Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MAIN FEATURES ─────────────────────────────────────────── -->
+    <section class="section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-heading__tag">Core Features</span>
+          <h2 class="section-heading__title" id="features-heading">
+            Everything You Need for Safety
+          </h2>
+          <p class="section-heading__subtitle">
+            SafeHer brings together essential safety tools in a fast, easy-to-use interface
+            that works when it matters most.
+          </p>
+        </div>
+
+        <!-- Feature cards grid -->
+        <div class="grid grid--3" role="list">
+
+          <article class="card" role="listitem" aria-label="One-Tap SOS feature">
+            <span class="card__icon" aria-hidden="true">🆘</span>
+            <h3 class="card__title">One-Tap SOS</h3>
+            <p class="card__description">
+              Instantly trigger an emergency workflow that alerts your trusted contacts
+              and prepares your location data — with one tap.
+            </p>
+            <a class="card__link" href="sos.html" aria-label="Go to SOS page">
+              Access SOS →
+            </a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Voice Activation feature">
+            <span class="card__icon" aria-hidden="true">🎙️</span>
+            <h3 class="card__title">Voice Activation</h3>
+            <p class="card__description">
+              Trigger emergency assistance using voice commands when your hands are not
+              free. Configurable trigger phrases.
+            </p>
+            <a class="card__link" href="dashboard.html" aria-label="Go to dashboard for voice activation">
+              Set Up Voice →
+            </a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Emergency Contacts feature">
+            <span class="card__icon" aria-hidden="true">👥</span>
+            <h3 class="card__title">Emergency Contacts</h3>
+            <p class="card__description">
+              Store up to five trusted contacts. These people will be notified first
+              during an emergency alert.
+            </p>
+            <a class="card__link" href="contacts.html" aria-label="Go to emergency contacts page">
+              Manage Contacts →
+            </a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Live Location feature">
+            <span class="card__icon" aria-hidden="true">📍</span>
+            <h3 class="card__title">Live Location</h3>
+            <p class="card__description">
+              Share your current location with trusted contacts. Generate a shareable
+              link they can use to locate you quickly.
+            </p>
+            <a class="card__link" href="location.html" aria-label="Go to live location page">
+              Share Location →
+            </a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Emergency Helplines feature">
+            <span class="card__icon" aria-hidden="true">📞</span>
+            <h3 class="card__title">Emergency Helplines</h3>
+            <p class="card__description">
+              Quick access to national emergency numbers, women's helplines, police,
+              ambulance and cyber crime reporting.
+            </p>
+            <a class="card__link" href="helplines.html" aria-label="Go to emergency helplines page">
+              View Helplines →
+            </a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Incident Reporting feature">
+            <span class="card__icon" aria-hidden="true">📝</span>
+            <h3 class="card__title">Incident Reporting</h3>
+            <p class="card__description">
+              Document incidents securely with optional anonymity. Keep a personal record
+              or prepare for formal reporting.
+            </p>
+            <a class="card__link" href="report.html" aria-label="Go to incident report page">
+              Report Incident →
+            </a>
+          </article>
+
+        </div><!-- /grid -->
+      </div>
+    </section>
+
+    <!-- ── HOW SAFEHER WORKS ──────────────────────────────────────── -->
+    <section class="section" style="background-color: var(--color-bg-secondary);" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-heading__tag">How It Works</span>
+          <h2 class="section-heading__title" id="how-heading">
+            Three Steps to Safety Readiness
+          </h2>
+          <p class="section-heading__subtitle">
+            Getting set up with SafeHer takes only a few minutes.
+          </p>
+        </div>
+
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <div class="step__number" aria-hidden="true">1</div>
+            <h3 class="step__title">Create Your Safety Profile</h3>
+            <p class="step__description">
+              Register with your name, email and phone number.
+              Fill out your personal safety profile with relevant details.
+            </p>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="step__number" aria-hidden="true">2</div>
+            <h3 class="step__title">Add Trusted Emergency Contacts</h3>
+            <p class="step__description">
+              Add up to five people you trust. They will be notified first
+              when you trigger an emergency alert.
+            </p>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="step__number" aria-hidden="true">3</div>
+            <h3 class="step__title">Access Emergency Tools Quickly</h3>
+            <p class="step__description">
+              Use the dashboard to quickly reach SOS, location sharing,
+              helplines and safety resources whenever you need them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SAFETY AWARENESS ───────────────────────────────────────── -->
+    <section class="section" aria-labelledby="awareness-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-heading__tag">Safety Awareness</span>
+          <h2 class="section-heading__title" id="awareness-heading">
+            Stay Informed. Stay Prepared.
+          </h2>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">👁️</span>
+            <h3 class="card__title">Stay Situationally Aware</h3>
+            <p class="card__description">
+              Being aware of your surroundings is the single most effective safety measure.
+              Trust your instincts and plan your routes in advance, especially at night.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">📲</span>
+            <h3 class="card__title">Keep Contacts Updated</h3>
+            <p class="card__description">
+              Regularly inform trusted contacts of your location and plans,
+              especially during late hours or travel to unfamiliar places.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">🔢</span>
+            <h3 class="card__title">Know Local Emergency Numbers</h3>
+            <p class="card__description">
+              Memorise essential numbers: 112 (National Emergency), 100 (Police),
+              1091 (Women's Helpline). Save them in your phone and SafeHer contacts.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">🗺️</span>
+            <h3 class="card__title">Use Location Sharing Responsibly</h3>
+            <p class="card__description">
+              Share your live location only with people you completely trust.
+              Review who has access and revoke it when it is no longer needed.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CALL TO ACTION ─────────────────────────────────────────── -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 class="cta-section__title" id="cta-heading">
+          Your Safety. Your Support Network.<br />One Place.
+        </h2>
+        <p class="cta-section__subtitle">
+          Join SafeHer today and be prepared before an emergency happens.
+        </p>
+        <div class="cta-section__actions">
+          <a class="btn btn--outline-white btn--lg" href="register.html">
+            ✨ Create Account
+          </a>
+          <a class="btn btn--secondary btn--lg" href="dashboard.html" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.4);">
+            📊 Explore Dashboard
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  SITE FOOTER                                                    -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <!-- Brand -->
+        <div>
+          <span class="site-footer__brand-name">🛡️ SafeHer</span>
+          <p class="site-footer__brand-desc">
+            An academic project focused on women's safety awareness and emergency
+            assistance tools. Built with care for those who need it most.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <nav aria-label="Footer quick links">
+          <h3 class="site-footer__heading">Quick Links</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="index.html">Home</a></li>
+            <li><a class="site-footer__link" href="dashboard.html">Dashboard</a></li>
+            <li><a class="site-footer__link" href="login.html">Login</a></li>
+            <li><a class="site-footer__link" href="register.html">Register</a></li>
+          </ul>
+        </nav>
+
+        <!-- Safety Resources -->
+        <nav aria-label="Footer safety resources">
+          <h3 class="site-footer__heading">Safety Resources</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="sos.html">SOS</a></li>
+            <li><a class="site-footer__link" href="helplines.html">Helplines</a></li>
+            <li><a class="site-footer__link" href="safety-tips.html">Safety Tips</a></li>
+            <li><a class="site-footer__link" href="report.html">Report Incident</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <nav aria-label="Footer contact links">
+          <h3 class="site-footer__heading">Contact</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="contact.html">Contact Us</a></li>
+            <li><a class="site-footer__link" href="profile.html">My Profile</a></li>
+            <li><a class="site-footer__link" href="contacts.html">Emergency Contacts</a></li>
+          </ul>
+        </nav>
+
+      </div><!-- /footer grid -->
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__disclaimer" role="note">
+          ⚠️ <strong>Disclaimer:</strong> SafeHer is currently an academic prototype and should not be
+          considered a replacement for official emergency services. In a real emergency, please contact
+          your local emergency number (112 in India) immediately.
+        </p>
+        <p class="site-footer__copyright">
+          &copy; <span id="current-year">2024</span> SafeHer — Academic Mini Project.
+          All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

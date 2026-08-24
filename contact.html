@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact SafeHer – Get in touch with the project team, report issues or request support for this academic safety project." />
+  <title>Contact Us – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="site-logo" aria-label="SafeHer home">
+        <span class="logo-icon" aria-hidden="true">🛡️</span>
+        <span>SafeHer</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="main-nav-list"
+        type="button"
+      >
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="main-nav__list" id="main-nav-list" role="list">
+          <li><a class="main-nav__link" href="index.html">Home</a></li>
+          <li><a class="main-nav__link" href="safety-tips.html">Safety Tips</a></li>
+          <li><a class="main-nav__link" href="dashboard.html">Dashboard</a></li>
+          <li><a class="main-nav__link active" href="contact.html" aria-current="page">Contact</a></li>
+          <li><a class="main-nav__link" href="login.html">Login</a></li>
+          <li><a class="btn btn--primary btn--sm" href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Contact</span>
+        </nav>
+        <h1 class="page-header__title">📬 Contact Us</h1>
+        <p class="page-header__subtitle">
+          Questions about SafeHer? Get in touch with the project team.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="contact-section-heading">
+      <div class="container">
+        <h2 id="contact-section-heading" class="visually-hidden">Contact form and project information</h2>
+
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-12); align-items: start;">
+
+          <!-- Contact Form -->
+          <div>
+            <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-3);">Send a Message</h2>
+            <p class="text-muted" style="font-size: var(--font-size-sm); margin-bottom: var(--space-6);">
+              For general enquiries about the SafeHer academic project.
+            </p>
+
+            <div class="alert alert--info" role="note" style="margin-bottom: var(--space-6);">
+              <span class="alert__icon" aria-hidden="true">ℹ️</span>
+              <span>
+                <strong>Demo:</strong> Form submission is not yet functional.
+                Backend integration will be implemented in Step 3.
+              </span>
+            </div>
+
+            <form
+              id="contact-form"
+              method="post"
+              action="#"
+              novalidate
+              aria-label="Contact form"
+            >
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-name">Your Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  autocomplete="name"
+                  placeholder="Your full name"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-email">Email Address</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-subject">Subject</label>
+                <select
+                  class="form-select"
+                  id="contact-subject"
+                  name="subject"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="general">General Enquiry</option>
+                  <option value="bug">Bug / Issue Report</option>
+                  <option value="feature">Feature Suggestion</option>
+                  <option value="academic">Academic / Research</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-message">Message</label>
+                <textarea
+                  class="form-textarea"
+                  id="contact-message"
+                  name="message"
+                  rows="6"
+                  placeholder="Your message…"
+                  required
+                  aria-required="true"
+                ></textarea>
+              </div>
+
+              <button
+                class="btn btn--primary btn--block"
+                type="submit"
+                id="contact-submit-btn"
+                onclick="event.preventDefault(); alert('Demo: Contact form submission will be implemented in Step 3 with Flask backend.')"
+              >
+                Send Message
+              </button>
+
+            </form>
+          </div>
+
+          <!-- Project Info -->
+          <aside aria-label="Project information">
+
+            <div class="card" style="margin-bottom: var(--space-5);">
+              <span class="card__icon" aria-hidden="true">🎓</span>
+              <h3 class="card__title">About This Project</h3>
+              <p class="card__description">
+                SafeHer is an academic mini project designed to demonstrate a women's safety
+                and emergency assistance system. It is built using HTML5, CSS3 and
+                Vanilla JavaScript as the frontend prototype.
+              </p>
+            </div>
+
+            <div class="card" style="margin-bottom: var(--space-5);">
+              <span class="card__icon" aria-hidden="true">🛠️</span>
+              <h3 class="card__title">Development Stage</h3>
+              <p class="card__description">
+                Currently in <strong>Step 1: Frontend Prototype</strong>.
+                Future steps will add Flask backend, SQLite database, authentication
+                and real emergency workflow integrations.
+              </p>
+            </div>
+
+            <div class="card">
+              <span class="card__icon" aria-hidden="true">📚</span>
+              <h3 class="card__title">Technologies Used</h3>
+              <p class="card__description" style="margin-bottom: var(--space-3);">
+                Frontend prototype built with:
+              </p>
+              <ul style="list-style: disc; padding-left: var(--space-5); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                <li>HTML5 (Semantic)</li>
+                <li>CSS3 (Custom Properties)</li>
+                <li>Vanilla JavaScript (ES6+)</li>
+              </ul>
+            </div>
+
+            <!-- Academic disclaimer -->
+            <div class="alert alert--warning" role="note" style="margin-top: var(--space-5);">
+              <span class="alert__icon" aria-hidden="true">⚠️</span>
+              <span>
+                <strong>Disclaimer:</strong> SafeHer is an academic prototype. It is not a
+                production emergency service. For real emergencies, contact official
+                services: <strong>112</strong>.
+              </span>
+            </div>
+
+          </aside>
+
+        </div>
+
+        <div style="margin-top: var(--space-8);">
+          <a class="back-link" href="index.html" aria-label="Return to home page">
+            ← Back to Home
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__bottom" style="padding-top: 0; border-top: none;">
+        <p class="site-footer__disclaimer" role="note">
+          ⚠️ <strong>Disclaimer:</strong> SafeHer is an academic prototype. Please contact official emergency services for real emergencies.
+        </p>
+        <p class="site-footer__copyright">
+          &copy; <span id="current-year">2024</span> SafeHer — Academic Mini Project.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer Live Location – Share your current location with trusted contacts during emergencies." />
+  <title>Live Location – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">🛡️ SafeHer</a>
+      <nav aria-label="Page navigation">
+        <ul class="dashboard-nav__list" style="display: flex;" role="list">
+          <li><a class="dashboard-nav__link" href="dashboard.html">← Dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="dashboard.html">Dashboard</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Live Location</span>
+        </nav>
+        <h1 class="page-header__title">📍 Live Location</h1>
+        <p class="page-header__subtitle">
+          View and share your current location with trusted contacts.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="location-heading">
+      <div class="container">
+        <h2 id="location-heading" class="visually-hidden">Location information and controls</h2>
+
+        <!-- Location privacy notice -->
+        <div class="alert alert--info" role="note" style="margin-bottom: var(--space-6);">
+          <span class="alert__icon" aria-hidden="true">🔒</span>
+          <span>
+            <strong>Privacy:</strong> Your location is never shared without your explicit action.
+            Clicking "Get Current Location" will prompt your browser for permission.
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start;">
+
+          <!-- Controls -->
+          <div>
+            <!-- Status -->
+            <div class="card" style="margin-bottom: var(--space-5);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-4);">📡 Location Status</h3>
+
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div>
+                  <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: var(--space-1);">Status</p>
+                  <p id="location-status-text" style="font-weight: var(--font-weight-semibold); color: var(--color-text-secondary);">
+                    Location not requested yet.
+                  </p>
+                </div>
+
+                <div>
+                  <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: var(--space-1);">Latitude</p>
+                  <p id="location-lat" style="font-family: monospace; color: var(--color-text-primary);">—</p>
+                </div>
+
+                <div>
+                  <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: var(--space-1);">Longitude</p>
+                  <p id="location-lng" style="font-family: monospace; color: var(--color-text-primary);">—</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+
+              <button
+                class="btn btn--primary btn--block"
+                id="get-location-btn"
+                type="button"
+                aria-label="Get your current GPS location"
+              >
+                📍 Get Current Location
+              </button>
+
+              <button
+                class="btn btn--secondary btn--block"
+                id="copy-location-btn"
+                type="button"
+                aria-label="Copy location link to clipboard (requires location to be retrieved first)"
+              >
+                🔗 Copy Location Link
+              </button>
+
+              <button
+                class="btn btn--secondary btn--block"
+                id="share-location-btn"
+                type="button"
+                aria-label="Share live location with emergency contacts (requires backend connection)"
+              >
+                📤 Share with Contacts
+              </button>
+
+            </div>
+
+            <div class="alert alert--warning" role="note" style="margin-top: var(--space-5);">
+              <span class="alert__icon" aria-hidden="true">⚠️</span>
+              <span>
+                Location sharing with contacts requires the Flask backend (Step 3).
+                "Get Location" uses the real Geolocation API.
+              </span>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div>
+            <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-4);">🗺️ Location Map</h3>
+            <div
+              class="map-placeholder"
+              id="map-area"
+              role="img"
+              aria-label="Map area — location will appear here once permission is granted"
+            >
+              <span class="map-placeholder__icon" aria-hidden="true">🗺️</span>
+              <p class="map-placeholder__text">
+                Map will display here once location permission is granted.<br />
+                <small>Interactive map integration (Leaflet.js) coming in Step 4.</small>
+              </p>
+            </div>
+
+            <p class="text-muted mt-4" style="font-size: var(--font-size-xs); text-align: center;">
+              Map integration will be implemented in Step 4 using Leaflet.js (open source).
+            </p>
+          </div>
+
+        </div>
+
+        <div style="margin-top: var(--space-8);">
+          <a class="back-link" href="dashboard.html" aria-label="Return to dashboard">
+            ← Back to Dashboard
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer |
+        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/location.js" defer></script>
+
+</body>
+</html>

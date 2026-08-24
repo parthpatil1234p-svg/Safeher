@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer Emergency Helplines – Quick access to national emergency numbers, women's support lines and police contacts." />
+  <title>Emergency Helplines – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">🛡️ SafeHer</a>
+      <nav aria-label="Page navigation">
+        <ul class="dashboard-nav__list" style="display: flex;" role="list">
+          <li><a class="dashboard-nav__link" href="dashboard.html">← Dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="dashboard.html">Dashboard</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Emergency Helplines</span>
+        </nav>
+        <h1 class="page-header__title">📞 Emergency Helplines</h1>
+        <p class="page-header__subtitle">
+          Important emergency contact numbers. Always verify from official government sources before use.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="helplines-heading">
+      <div class="container">
+        <h2 id="helplines-heading" class="visually-hidden">Emergency helpline numbers by category</h2>
+
+        <!-- IMPORTANT Verification Notice -->
+        <div class="alert alert--danger" role="alert" style="margin-bottom: var(--space-8);">
+          <span class="alert__icon" aria-hidden="true">⚠️</span>
+          <div>
+            <strong>Important Verification Notice:</strong> Emergency numbers must be verified from
+            official government sources before production use. Numbers listed as "Verify before use"
+            are placeholders and must NOT be relied upon without independent confirmation.
+            For immediate help, call <strong>112</strong> (National Emergency).
+          </div>
+        </div>
+
+        <!-- National Emergency -->
+        <section class="tip-category" aria-labelledby="nat-emergency-heading">
+          <div class="tip-category__header">
+            <span class="tip-category__icon" aria-hidden="true">🚨</span>
+            <h2 class="tip-category__title" id="nat-emergency-heading">National Emergency</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);" role="list">
+            <article class="helpline-card" role="listitem" aria-label="National Emergency number 112">
+              <span class="helpline-card__icon" aria-hidden="true">🆘</span>
+              <div>
+                <p class="helpline-card__name">National Emergency Number</p>
+                <p class="helpline-card__desc">Police, Fire, Ambulance — all services</p>
+              </div>
+              <span class="helpline-card__number">112</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- Police -->
+        <section class="tip-category" aria-labelledby="police-heading">
+          <div class="tip-category__header">
+            <span class="tip-category__icon" aria-hidden="true">👮</span>
+            <h2 class="tip-category__title" id="police-heading">Police</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);" role="list">
+            <article class="helpline-card" role="listitem" aria-label="Police number 100">
+              <span class="helpline-card__icon" aria-hidden="true">🚔</span>
+              <div>
+                <p class="helpline-card__name">Police</p>
+                <p class="helpline-card__desc">General police emergency line (India)</p>
+              </div>
+              <span class="helpline-card__number">100</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- Ambulance -->
+        <section class="tip-category" aria-labelledby="ambulance-heading">
+          <div class="tip-category__header">
+            <span class="tip-category__icon" aria-hidden="true">🚑</span>
+            <h2 class="tip-category__title" id="ambulance-heading">Ambulance</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);" role="list">
+            <article class="helpline-card" role="listitem" aria-label="Ambulance number 108">
+              <span class="helpline-card__icon" aria-hidden="true">🏥</span>
+              <div>
+                <p class="helpline-card__name">Ambulance Service</p>
+                <p class="helpline-card__desc">Medical emergency — national</p>
+              </div>
+              <span class="helpline-card__number">108</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- Women's Support -->
+        <section class="tip-category" aria-labelledby="womens-heading">
+          <div class="tip-category__header">
+            <span class="tip-category__icon" aria-hidden="true">👩</span>
+            <h2 class="tip-category__title" id="womens-heading">Women's Support</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);" role="list">
+
+            <article class="helpline-card" role="listitem" aria-label="Women's Helpline 1091">
+              <span class="helpline-card__icon" aria-hidden="true">🤝</span>
+              <div>
+                <p class="helpline-card__name">Women's Helpline</p>
+                <p class="helpline-card__desc">24×7 support for women in distress — national</p>
+              </div>
+              <span class="helpline-card__number">1091</span>
+            </article>
+
+            <article class="helpline-card" role="listitem" aria-label="National Commission for Women helpline">
+              <span class="helpline-card__icon" aria-hidden="true">⚖️</span>
+              <div>
+                <p class="helpline-card__name">National Commission for Women</p>
+                <p class="helpline-card__desc">
+                  Complaints regarding offences against women.
+                  <em>Verify official number at ncwapps.nic.in</em>
+                </p>
+              </div>
+              <span class="helpline-card__number" style="font-size: var(--font-size-base);" title="Verify before use">
+                Verify before use
+              </span>
+            </article>
+
+            <article class="helpline-card" role="listitem" aria-label="Domestic violence helpline">
+              <span class="helpline-card__icon" aria-hidden="true">🏠</span>
+              <div>
+                <p class="helpline-card__name">Domestic Violence Helpline</p>
+                <p class="helpline-card__desc">
+                  Protection of Women from Domestic Violence Act.
+                  <em>Verify with local district authority</em>
+                </p>
+              </div>
+              <span class="helpline-card__number" style="font-size: var(--font-size-base);" title="Verify before use">
+                Verify before use
+              </span>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Cyber Crime -->
+        <section class="tip-category" aria-labelledby="cyber-heading">
+          <div class="tip-category__header">
+            <span class="tip-category__icon" aria-hidden="true">💻</span>
+            <h2 class="tip-category__title" id="cyber-heading">Cyber Crime</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);" role="list">
+
+            <article class="helpline-card" role="listitem" aria-label="Cyber crime helpline 1930">
+              <span class="helpline-card__icon" aria-hidden="true">🛡️</span>
+              <div>
+                <p class="helpline-card__name">Cyber Crime Helpline</p>
+                <p class="helpline-card__desc">
+                  Online fraud, harassment, and cyber crime reporting (India)
+                </p>
+              </div>
+              <span class="helpline-card__number">1930</span>
+            </article>
+
+            <article class="helpline-card" role="listitem" aria-label="National Cyber Crime Reporting Portal">
+              <span class="helpline-card__icon" aria-hidden="true">🌐</span>
+              <div>
+                <p class="helpline-card__name">Cyber Crime Reporting Portal</p>
+                <p class="helpline-card__desc">
+                  Online portal for cyber crime reporting — cybercrime.gov.in
+                </p>
+              </div>
+              <span class="helpline-card__number" style="font-size: var(--font-size-sm);">
+                cybercrime.gov.in
+              </span>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Verification notice footer -->
+        <div class="alert alert--warning" role="note" style="margin-top: var(--space-6);">
+          <span class="alert__icon" aria-hidden="true">📋</span>
+          <div>
+            <strong>Academic Project Note:</strong> Numbers marked "Verify before use" are placeholders.
+            Official emergency numbers must be verified at
+            <em>india.gov.in</em> and local state government websites before
+            this application is deployed in production.
+          </div>
+        </div>
+
+        <div style="margin-top: var(--space-8);">
+          <a class="back-link" href="dashboard.html" aria-label="Return to dashboard">
+            ← Back to Dashboard
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer |
+        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

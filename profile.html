@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer Profile – Manage your personal safety profile, account settings and emergency contact preferences." />
+  <title>My Profile – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">🛡️ SafeHer</a>
+      <nav aria-label="Page navigation">
+        <ul class="dashboard-nav__list" style="display: flex;" role="list">
+          <li><a class="dashboard-nav__link" href="dashboard.html">Dashboard</a></li>
+          <li><a class="dashboard-nav__link active" href="profile.html" aria-current="page">Profile</a></li>
+          <li>
+            <button
+              class="btn btn--sm"
+              style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3);"
+              type="button"
+              onclick="alert('Demo: Logout will be implemented in Step 3.')"
+              aria-label="Logout (not yet functional)"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="dashboard.html">Dashboard</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">My Profile</span>
+        </nav>
+        <h1 class="page-header__title">👤 My Profile</h1>
+        <p class="page-header__subtitle">
+          Manage your personal safety profile and account settings.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="profile-heading">
+      <div class="container" style="max-width: 800px;">
+        <h2 id="profile-heading" class="visually-hidden">Profile information</h2>
+
+        <div class="alert alert--info" role="note" style="margin-bottom: var(--space-6);">
+          <span class="alert__icon" aria-hidden="true">ℹ️</span>
+          <span>
+            <strong>Demo:</strong> Profile data shown below is placeholder only. Real profile
+            management will be implemented with the Flask backend in Step 3.
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-10); align-items: start;">
+
+          <!-- Profile photo & quick info -->
+          <div class="text-center">
+            <!-- Profile Avatar -->
+            <div class="profile-avatar" role="img" aria-label="Profile photo placeholder">
+              👤
+            </div>
+
+            <p style="font-weight: var(--font-weight-bold); font-size: var(--font-size-lg); margin-bottom: var(--space-1);">
+              Demo User
+            </p>
+            <p class="text-muted" style="font-size: var(--font-size-sm); margin-bottom: var(--space-5);">
+              user@example.com
+            </p>
+
+            <button
+              class="btn btn--secondary btn--sm btn--block"
+              type="button"
+              onclick="alert('Demo: Profile photo upload will be implemented in Step 3.')"
+              aria-label="Change profile photo (not yet functional)"
+            >
+              📷 Change Photo
+            </button>
+          </div>
+
+          <!-- Profile fields -->
+          <div>
+            <form id="profile-form" method="post" action="#" novalidate aria-label="Edit profile form">
+
+              <div class="form-group">
+                <label class="form-label" for="profile-fullname">Full Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="profile-fullname"
+                  name="full_name"
+                  value="Demo User"
+                  autocomplete="name"
+                  aria-describedby="fullname-hint"
+                />
+                <span class="form-hint" id="fullname-hint">This name is used in emergency alerts.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profile-email">Email Address</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="profile-email"
+                  name="email"
+                  value="user@example.com"
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profile-phone">Phone Number</label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="profile-phone"
+                  name="phone"
+                  value="+91 98765 XXXXX"
+                  autocomplete="tel"
+                  aria-describedby="phone-profile-hint"
+                />
+                <span class="form-hint" id="phone-profile-hint">Used for emergency contact notifications.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profile-city">City / Area</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="profile-city"
+                  name="city"
+                  value=""
+                  placeholder="Your city or area"
+                  autocomplete="address-level2"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profile-primary-contact">Primary Emergency Contact</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="profile-primary-contact"
+                  name="primary_contact"
+                  value="Mom (+91 98765 XXXXX)"
+                  placeholder="Name and phone of primary contact"
+                  aria-describedby="primary-contact-hint"
+                />
+                <span class="form-hint" id="primary-contact-hint">
+                  This person will be notified first in an SOS event.
+                  <a href="contacts.html">Manage all contacts →</a>
+                </span>
+              </div>
+
+              <button
+                class="btn btn--primary"
+                type="submit"
+                id="profile-save-btn"
+                onclick="event.preventDefault(); alert('Demo: Profile save will be implemented in Step 3 with Flask backend.')"
+                aria-label="Save profile changes"
+              >
+                💾 Save Changes
+              </button>
+
+            </form>
+
+            <!-- Account Settings Placeholder -->
+            <hr style="border: none; border-top: 1px solid var(--color-border); margin: var(--space-8) 0;" />
+
+            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--space-4);">⚙️ Account Settings</h3>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+
+              <div class="status-indicator">
+                <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+                <span class="status-indicator__label">Change Password</span>
+                <button
+                  class="btn btn--ghost btn--sm"
+                  type="button"
+                  onclick="alert('Demo: Password change will be implemented in Step 3.')"
+                  aria-label="Change password (not yet functional)"
+                >
+                  Coming in Step 3
+                </button>
+              </div>
+
+              <div class="status-indicator">
+                <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+                <span class="status-indicator__label">Notification Settings</span>
+                <button
+                  class="btn btn--ghost btn--sm"
+                  type="button"
+                  onclick="alert('Demo: Notification settings will be implemented in Step 4.')"
+                  aria-label="Notification settings (not yet functional)"
+                >
+                  Coming in Step 4
+                </button>
+              </div>
+
+              <div class="status-indicator">
+                <span class="status-dot status-dot--grey" aria-hidden="true"></span>
+                <span class="status-indicator__label">Delete Account</span>
+                <button
+                  class="btn btn--ghost btn--sm"
+                  type="button"
+                  aria-label="Delete account (not yet functional)"
+                  onclick="alert('Demo: Account deletion will be implemented in Step 3.')"
+                >
+                  Coming in Step 3
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top: var(--space-8);">
+          <a class="back-link" href="dashboard.html" aria-label="Return to dashboard">
+            ← Back to Dashboard
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer |
+        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

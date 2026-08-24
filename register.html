@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your free SafeHer account to access emergency tools and safety features designed for women." />
+  <title>Register – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <main class="auth-page" id="main-content" style="align-items: flex-start; padding-top: var(--space-8);">
+    <div class="auth-card" style="max-width: 500px;" role="main">
+
+      <!-- Logo -->
+      <div class="auth-card__logo">
+        <a href="index.html" aria-label="SafeHer home">
+          <span class="auth-card__logo-text">🛡️ SafeHer</span>
+        </a>
+        <span class="auth-card__logo-sub">Women's Safety System</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="auth-card__title">Create Your Account</h1>
+      <p class="auth-card__subtitle">Join SafeHer and stay prepared for any situation.</p>
+
+      <!-- Registration Form -->
+      <form id="register-form" method="post" action="#" novalidate aria-label="Registration form">
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="reg-name">
+            Full Name
+          </label>
+          <input
+            class="form-input"
+            type="text"
+            id="reg-name"
+            name="full_name"
+            autocomplete="name"
+            placeholder="Your full name"
+            required
+            aria-required="true"
+            aria-describedby="name-error"
+          />
+          <span class="form-error" id="name-error" role="alert"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="reg-email">
+            Email Address
+          </label>
+          <input
+            class="form-input"
+            type="email"
+            id="reg-email"
+            name="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+            aria-required="true"
+            aria-describedby="reg-email-error"
+          />
+          <span class="form-error" id="reg-email-error" role="alert"></span>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="reg-phone">
+            Phone Number
+          </label>
+          <input
+            class="form-input"
+            type="tel"
+            id="reg-phone"
+            name="phone"
+            autocomplete="tel"
+            placeholder="+91 98765 43210"
+            required
+            aria-required="true"
+            aria-describedby="phone-error phone-hint"
+          />
+          <span class="form-hint" id="phone-hint">
+            Used for emergency contact alerts. Indian format preferred.
+          </span>
+          <span class="form-error" id="phone-error" role="alert"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="reg-password">
+            Password
+          </label>
+          <input
+            class="form-input"
+            type="password"
+            id="reg-password"
+            name="password"
+            autocomplete="new-password"
+            placeholder="Minimum 8 characters"
+            required
+            aria-required="true"
+            minlength="8"
+            aria-describedby="reg-password-error reg-password-hint"
+          />
+          <span class="form-hint" id="reg-password-hint">
+            Minimum 8 characters. Use letters, numbers and symbols for strength.
+          </span>
+          <span class="form-error" id="reg-password-error" role="alert"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label class="form-label form-label--required" for="reg-confirm-password">
+            Confirm Password
+          </label>
+          <input
+            class="form-input"
+            type="password"
+            id="reg-confirm-password"
+            name="confirm_password"
+            autocomplete="new-password"
+            placeholder="Re-enter your password"
+            required
+            aria-required="true"
+            aria-describedby="confirm-error"
+          />
+          <span class="form-error" id="confirm-error" role="alert"></span>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-group">
+          <div class="form-checkbox-group">
+            <input
+              class="form-checkbox"
+              type="checkbox"
+              id="reg-terms"
+              name="terms"
+              required
+              aria-required="true"
+              aria-describedby="terms-error"
+            />
+            <label class="form-checkbox-label" for="reg-terms">
+              I understand that SafeHer is an academic prototype and not a substitute
+              for official emergency services. I agree to use this application responsibly.
+            </label>
+          </div>
+          <span class="form-error" id="terms-error" role="alert"></span>
+        </div>
+
+        <!-- Prototype notice -->
+        <div class="alert alert--info" role="note" style="margin-bottom: var(--space-5);" aria-live="polite">
+          <span class="alert__icon" aria-hidden="true">ℹ️</span>
+          <span>
+            <strong>Demo:</strong> Registration form is a frontend prototype.
+            Account creation will be implemented with the Flask backend in Step 3.
+          </span>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn btn--primary btn--block" type="submit" id="register-submit-btn">
+          Create Account
+        </button>
+
+      </form>
+
+      <!-- Login link -->
+      <div class="auth-card__footer" style="margin-top: var(--space-6);">
+        Already have an account?
+        <a href="login.html">Sign in here</a>
+      </div>
+
+      <div class="auth-card__footer" style="margin-top: var(--space-3);">
+        <a href="index.html" aria-label="Back to SafeHer home page">← Back to Home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/validation.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeHer Emergency Contacts – Add and manage trusted contacts who will be notified during emergencies." />
+  <title>Emergency Contacts – SafeHer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="dashboard-header" role="banner">
+    <div class="container">
+      <a class="dashboard-logo" href="index.html" aria-label="SafeHer home">🛡️ SafeHer</a>
+      <nav aria-label="Page navigation">
+        <ul class="dashboard-nav__list" style="display: flex;" role="list">
+          <li><a class="dashboard-nav__link" href="dashboard.html">← Dashboard</a></li>
+          <li><a class="dashboard-nav__link" href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container">
+        <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="dashboard.html">Dashboard</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Emergency Contacts</span>
+        </nav>
+        <h1 class="page-header__title">👥 Emergency Contacts</h1>
+        <p class="page-header__subtitle">
+          Add up to five trusted people who will be alerted when you activate SOS.
+        </p>
+      </div>
+    </div>
+
+    <section class="section--sm" aria-labelledby="contacts-main-heading">
+      <div class="container">
+
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-10); align-items: start;">
+
+          <!-- ── Add Contact Form ─────────────────────────────────── -->
+          <div>
+            <h2 id="contacts-main-heading" style="font-size: var(--font-size-xl); margin-bottom: var(--space-6);">
+              Add Emergency Contact
+            </h2>
+
+            <div class="alert alert--info" role="note" style="margin-bottom: var(--space-6);">
+              <span class="alert__icon" aria-hidden="true">ℹ️</span>
+              <span>
+                <strong>Demo:</strong> Contact saving will be connected to the SQLite database in Step 3.
+              </span>
+            </div>
+
+            <form id="add-contact-form" method="post" action="#" novalidate aria-label="Add emergency contact form">
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-name">Contact Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="contact-name"
+                  name="contact_name"
+                  placeholder="Full name of contact"
+                  required
+                  aria-required="true"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-relationship">Relationship</label>
+                <select class="form-select" id="contact-relationship" name="relationship" required aria-required="true">
+                  <option value="" disabled selected>Select relationship</option>
+                  <option value="parent">Parent</option>
+                  <option value="sibling">Sibling</option>
+                  <option value="spouse_partner">Spouse / Partner</option>
+                  <option value="friend">Friend</option>
+                  <option value="colleague">Colleague</option>
+                  <option value="guardian">Guardian</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label form-label--required" for="contact-phone">Phone Number</label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  placeholder="+91 98765 43210"
+                  required
+                  aria-required="true"
+                  autocomplete="off"
+                  aria-describedby="contact-phone-hint"
+                />
+                <span class="form-hint" id="contact-phone-hint">
+                  This number will receive emergency alerts.
+                </span>
+              </div>
+
+              <button class="btn btn--primary btn--block" type="submit" id="save-contact-btn">
+                + Add Contact
+              </button>
+
+            </form>
+          </div>
+
+          <!-- ── Saved Contacts ──────────────────────────────────── -->
+          <div>
+            <div class="flex justify-between items-center" style="margin-bottom: var(--space-5);">
+              <h2 style="font-size: var(--font-size-xl);">Saved Contacts</h2>
+              <span class="badge badge--warning">Demo Data</span>
+            </div>
+
+            <!-- Contact list rendered by contacts.js -->
+            <div
+              id="contacts-list"
+              role="list"
+              aria-label="Emergency contacts list"
+              style="display: flex; flex-direction: column; gap: var(--space-4);"
+            >
+              <!-- JavaScript (contacts.js) renders cards here -->
+              <p class="text-muted" style="font-size: var(--font-size-sm);">Loading contacts…</p>
+            </div>
+
+            <div class="alert alert--warning" role="note" style="margin-top: var(--space-6);">
+              <span class="alert__icon" aria-hidden="true">⚠️</span>
+              <span>
+                These are placeholder contacts for demonstration. Real contact storage
+                requires the Flask + SQLite backend (Step 3).
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top: var(--space-8);">
+          <a class="back-link" href="dashboard.html" aria-label="Return to dashboard">
+            ← Back to Dashboard
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+    <div class="container">
+      <p class="text-muted" style="font-size: var(--font-size-xs);">
+        &copy; <span id="current-year">2024</span> SafeHer |
+        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/contacts.js" defer></script>
+
+</body>
+</html>
