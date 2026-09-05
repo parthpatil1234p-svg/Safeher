@@ -51,6 +51,15 @@ function activateDemoSOS() {
     cancelBtn.classList.remove('hidden');
   }
 
+  // Auto-reset after demo duration (simulates countdown)
+  setTimeout(() => {
+    cancelDemoSOS();
+    if (statusEl) {
+      statusEl.textContent = 'Demo SOS countdown completed. No emergency services were contacted.';
+      statusEl.className   = 'alert alert--info';
+    }
+  }, SOS_DEMO_DURATION_MS);
+
   // TODO (Step 3): Replace demo alert with real API call:
   // sendSOSAlert({ coords: currentCoords, contacts: emergencyContacts });
 }

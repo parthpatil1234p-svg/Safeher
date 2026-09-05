@@ -7,6 +7,7 @@
   <title>Login – SafeHer</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
 
@@ -14,7 +15,7 @@
 
   <!-- Auth Layout — centered card -->
   <main class="auth-page" id="main-content">
-    <div class="auth-card" role="main">
+    <div class="auth-card anim-enter" role="main">
 
       <!-- Logo -->
       <div class="auth-card__logo">
@@ -25,6 +26,9 @@
       </div>
 
       <!-- Heading -->
+      <div class="text-center mb-4">
+        <span class="demo-badge">⚙️ Demo Login — Frontend Prototype</span>
+      </div>
       <h1 class="auth-card__title">Welcome Back</h1>
       <p class="auth-card__subtitle">Sign in to access your safety dashboard.</p>
 
@@ -32,40 +36,40 @@
       <form id="login-form" method="post" action="#" novalidate aria-label="Login form">
 
         <!-- Email -->
-        <div class="form-group">
-          <label class="form-label form-label--required" for="login-email">
-            Email Address
-          </label>
+        <div class="form-group form-group--float">
           <input
             class="form-input"
             type="email"
             id="login-email"
             name="email"
             autocomplete="email"
-            placeholder="you@example.com"
+            placeholder=" "
             required
             aria-required="true"
             aria-describedby="email-error"
           />
+          <label class="form-label form-label--required" for="login-email">
+            Email Address
+          </label>
           <span class="form-error" id="email-error" role="alert"></span>
         </div>
 
         <!-- Password -->
-        <div class="form-group">
-          <label class="form-label form-label--required" for="login-password">
-            Password
-          </label>
+        <div class="form-group form-group--float">
           <input
             class="form-input"
             type="password"
             id="login-password"
             name="password"
             autocomplete="current-password"
-            placeholder="Enter your password"
+            placeholder=" "
             required
             aria-required="true"
             aria-describedby="password-error"
           />
+          <label class="form-label form-label--required" for="login-password">
+            Password
+          </label>
           <span class="form-error" id="password-error" role="alert"></span>
         </div>
 
@@ -119,6 +123,7 @@
   <script src="js/validation.js" defer></script>
   <script src="js/auth.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
 
 </body>
 </html>

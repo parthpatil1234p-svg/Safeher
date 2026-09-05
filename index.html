@@ -8,6 +8,7 @@
   <title>SafeHer – Women's Safety &amp; Emergency Assistance</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
 
@@ -45,7 +46,7 @@
       <!-- Navigation -->
       <nav class="main-nav" aria-label="Main navigation">
         <ul class="main-nav__list" id="main-nav-list" role="list">
-          <li><a class="main-nav__link active" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="main-nav__link" href="index.html" aria-current="page">Home</a></li>
           <li><a class="main-nav__link" href="#features">Features</a></li>
           <li><a class="main-nav__link" href="safety-tips.html">Safety Tips</a></li>
           <li><a class="main-nav__link" href="contact.html">Contact</a></li>
@@ -65,32 +66,100 @@
 
     <!-- ── HERO SECTION ──────────────────────────────────────────── -->
     <section class="hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="hero__content">
-          <div class="hero__badge" aria-hidden="true">
-            🛡️ Women's Safety Platform
+      <!-- 3D Web & Depth Canvas Background -->
+      <div class="canvas-3d-wrapper" aria-hidden="true">
+        <canvas id="hero-3d-canvas"></canvas>
+      </div>
+
+      <!-- Ambient Glow Depth Orbs -->
+      <div class="ambient-glow-mesh" aria-hidden="true">
+        <div class="glow-orb glow-orb--1"></div>
+        <div class="glow-orb glow-orb--2"></div>
+        <div class="glow-orb glow-orb--3"></div>
+      </div>
+
+      <!-- Floating 3D Geometric Ring -->
+      <div class="floating-3d-ring" style="top: 18%; right: 10%;" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="hero__layout">
+
+          <!-- Left column: text and CTAs -->
+          <div class="hero__content">
+            <div class="hero__badge" aria-hidden="true">
+              🛡️ Women's Safety Platform
+            </div>
+
+            <h1 class="hero__title" id="hero-heading">
+              Safety Support When<br />
+              <span class="highlight">Every Second Matters</span>
+            </h1>
+
+            <p class="hero__description">
+              SafeHer provides quick access to SOS tools, emergency contacts, live location
+              sharing and curated safety resources — all in one place, designed specifically
+              for women's safety and peace of mind.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="register.html">
+                🚀 Get Started Free
+              </a>
+              <a class="btn btn--outline-white btn--lg" href="dashboard.html">
+                📊 Emergency Dashboard
+              </a>
+            </div>
           </div>
 
-          <h1 class="hero__title" id="hero-heading">
-            Safety Support When<br />
-            <span class="highlight">Every Second Matters</span>
-          </h1>
+          <!-- Right column: 3D Glassmorphic Preview -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero-card-preview glass-panel-3d">
+              <p class="hero-card-preview__title">SafeHer Dashboard Preview</p>
+              <div class="hero-sos-circle">
+                <span>SOS</span>
+              </div>
+              <div class="hero-mini-stats">
+                <div class="hero-mini-stat">
+                  <div class="hero-mini-stat__icon">👥</div>
+                  <div class="hero-mini-stat__label">Contacts</div>
+                </div>
+                <div class="hero-mini-stat">
+                  <div class="hero-mini-stat__icon">📍</div>
+                  <div class="hero-mini-stat__label">Location</div>
+                </div>
+                <div class="hero-mini-stat">
+                  <div class="hero-mini-stat__icon">📞</div>
+                  <div class="hero-mini-stat__label">Helplines</div>
+                </div>
+                <div class="hero-mini-stat">
+                  <div class="hero-mini-stat__icon">🎙️</div>
+                  <div class="hero-mini-stat__label">Voice</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <p class="hero__description">
-            SafeHer provides quick access to SOS tools, emergency contacts, live location
-            sharing and curated safety resources — all in one place, designed specifically
-            for women's safety and peace of mind.
-          </p>
+        </div><!-- /hero__layout -->
 
-          <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="register.html">
-              🚀 Get Started Free
-            </a>
-            <a class="btn btn--outline-white btn--lg" href="dashboard.html">
-              📊 Emergency Dashboard
-            </a>
+        <!-- Trust highlights below hero -->
+        <div class="hero-highlights" role="list">
+          <div class="hero-highlight" role="listitem">
+            <div class="hero-highlight__icon">⚡</div>
+            <div class="hero-highlight__title">Quick Access</div>
+            <div class="hero-highlight__desc">One-tap SOS and emergency tools accessible in seconds</div>
+          </div>
+          <div class="hero-highlight" role="listitem">
+            <div class="hero-highlight__icon">👥</div>
+            <div class="hero-highlight__title">Trusted Contacts</div>
+            <div class="hero-highlight__desc">Save up to five emergency contacts for instant alerts</div>
+          </div>
+          <div class="hero-highlight" role="listitem">
+            <div class="hero-highlight__icon">📚</div>
+            <div class="hero-highlight__title">Safety Resources</div>
+            <div class="hero-highlight__desc">Curated safety tips and verified emergency helplines</div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -111,7 +180,7 @@
         <!-- Feature cards grid -->
         <div class="grid grid--3" role="list">
 
-          <article class="card" role="listitem" aria-label="One-Tap SOS feature">
+          <article class="card anim-card stagger-1" role="listitem" aria-label="One-Tap SOS feature">
             <span class="card__icon" aria-hidden="true">🆘</span>
             <h3 class="card__title">One-Tap SOS</h3>
             <p class="card__description">
@@ -123,7 +192,7 @@
             </a>
           </article>
 
-          <article class="card" role="listitem" aria-label="Voice Activation feature">
+          <article class="card anim-card stagger-2" role="listitem" aria-label="Voice Activation feature">
             <span class="card__icon" aria-hidden="true">🎙️</span>
             <h3 class="card__title">Voice Activation</h3>
             <p class="card__description">
@@ -135,7 +204,7 @@
             </a>
           </article>
 
-          <article class="card" role="listitem" aria-label="Emergency Contacts feature">
+          <article class="card anim-card stagger-3" role="listitem" aria-label="Emergency Contacts feature">
             <span class="card__icon" aria-hidden="true">👥</span>
             <h3 class="card__title">Emergency Contacts</h3>
             <p class="card__description">
@@ -147,7 +216,7 @@
             </a>
           </article>
 
-          <article class="card" role="listitem" aria-label="Live Location feature">
+          <article class="card anim-card stagger-4" role="listitem" aria-label="Live Location feature">
             <span class="card__icon" aria-hidden="true">📍</span>
             <h3 class="card__title">Live Location</h3>
             <p class="card__description">
@@ -159,7 +228,7 @@
             </a>
           </article>
 
-          <article class="card" role="listitem" aria-label="Emergency Helplines feature">
+          <article class="card anim-card stagger-5" role="listitem" aria-label="Emergency Helplines feature">
             <span class="card__icon" aria-hidden="true">📞</span>
             <h3 class="card__title">Emergency Helplines</h3>
             <p class="card__description">
@@ -171,7 +240,7 @@
             </a>
           </article>
 
-          <article class="card" role="listitem" aria-label="Incident Reporting feature">
+          <article class="card anim-card stagger-6" role="listitem" aria-label="Incident Reporting feature">
             <span class="card__icon" aria-hidden="true">📝</span>
             <h3 class="card__title">Incident Reporting</h3>
             <p class="card__description">
@@ -188,7 +257,7 @@
     </section>
 
     <!-- ── HOW SAFEHER WORKS ──────────────────────────────────────── -->
-    <section class="section" style="background-color: var(--color-bg-secondary);" aria-labelledby="how-heading">
+    <section class="section bg-secondary" aria-labelledby="how-heading">
       <div class="container">
         <div class="section-heading">
           <span class="section-heading__tag">How It Works</span>
@@ -198,6 +267,27 @@
           <p class="section-heading__subtitle">
             Getting set up with SafeHer takes only a few minutes.
           </p>
+        </div>
+
+        <!-- Interactive Animated Stepper & Progress Bar -->
+        <div class="stepper-container" aria-label="Setup Stepper Progress">
+          <div class="stepper-progress-track">
+            <div class="stepper-progress-fill step-2" id="stepper-progress-bar"></div>
+          </div>
+          <div class="stepper-steps">
+            <div class="stepper-step completed">
+              <span class="stepper-badge" aria-hidden="true">✓</span>
+              <span class="stepper-label">1. Profile</span>
+            </div>
+            <div class="stepper-step active">
+              <span class="stepper-badge" aria-hidden="true">2</span>
+              <span class="stepper-label">2. Contacts</span>
+            </div>
+            <div class="stepper-step">
+              <span class="stepper-badge" aria-hidden="true">3</span>
+              <span class="stepper-label">3. Ready</span>
+            </div>
+          </div>
         </div>
 
         <div class="steps" role="list">
@@ -294,7 +384,7 @@
           <a class="btn btn--outline-white btn--lg" href="register.html">
             ✨ Create Account
           </a>
-          <a class="btn btn--secondary btn--lg" href="dashboard.html" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.4);">
+          <a class="btn btn--outline-white btn--lg" href="dashboard.html">
             📊 Explore Dashboard
           </a>
         </div>
@@ -369,6 +459,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
 
 </body>
 </html>

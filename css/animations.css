@@ -1,0 +1,591 @@
+/* ==========================================================================
+   SafeHer — World-Class 3D Web Creative Motion & Depth System
+   Awwwards / Apple Standard Visual Engine
+   Stack: Pure HTML5 + CSS3 + Vanilla JavaScript (GPU 60fps)
+   ========================================================================== */
+
+/* ─── 1. CORE MOTION ENGINE TOKENS ────────────────────────────────────────── */
+:root {
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, system-ui, sans-serif;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-cinematic: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-glow: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Neon Ambient Accents */
+  --neon-violet: #8b5cf6;
+  --neon-violet-glow: rgba(139, 92, 246, 0.35);
+  --neon-cyan: #06b6d4;
+  --neon-cyan-glow: rgba(6, 182, 212, 0.3);
+  --neon-rose: #f43f5e;
+  --neon-rose-glow: rgba(244, 63, 94, 0.4);
+  --neon-emerald: #10b981;
+}
+
+/* ─── 2. 3D WEB PERSPECTIVE & AMBIENT CANVAS BACKGROUND ──────────────────── */
+.canvas-3d-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#hero-3d-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 16px var(--neon-violet-glow));
+}
+
+/* Floating 3D Glowing Ambient Orbs */
+.ambient-glow-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  opacity: 0.38;
+  will-change: transform, opacity;
+  animation: orbDrift 18s ease-in-out infinite alternate;
+}
+
+.glow-orb--1 {
+  top: -10%;
+  left: 15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #7c3aed 0%, rgba(124, 58, 237, 0) 70%);
+  animation-duration: 16s;
+}
+
+.glow-orb--2 {
+  bottom: 5%;
+  right: 10%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #ec4899 0%, rgba(236, 72, 153, 0) 70%);
+  animation-duration: 22s;
+  animation-delay: -5s;
+}
+
+.glow-orb--3 {
+  top: 40%;
+  right: 35%;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, #06b6d4 0%, rgba(6, 182, 212, 0) 70%);
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+@keyframes orbDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(50px, -40px, 0) scale(1.15) rotate(120deg);
+  }
+  100% {
+    transform: translate3d(-40px, 50px, 0) scale(0.92) rotate(240deg);
+  }
+}
+
+/* Floating 3D Geometric Ring */
+.floating-3d-ring {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-full);
+  border: 2px dashed rgba(167, 139, 250, 0.4);
+  box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.3), 0 0 30px rgba(139, 92, 246, 0.25);
+  pointer-events: none;
+  animation: ringLevitate 12s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes ringLevitate {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateX(45deg) rotateY(15deg) rotateZ(0deg);
+  }
+  50% {
+    transform: translate3d(0, -25px, 30px) rotateX(65deg) rotateY(-25deg) rotateZ(180deg);
+  }
+}
+
+/* ─── 3. GLASSMORPHISM 2.0 & SPECULAR DEPTH SURFACES ─────────────────────── */
+.glass-panel-3d {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15),
+    0 20px 45px -12px rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular edge light sweep */
+.glass-panel-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: left 0.85s var(--ease-spring);
+}
+
+.glass-panel-3d:hover::before {
+  left: 200%;
+}
+
+/* ─── 4. PRO-LEVEL 3D INTERACTIVE TILT CARDS ─────────────────────────────── */
+.card,
+.dashboard-card {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform, box-shadow;
+  transition: 
+    transform 0.28s var(--ease-cinematic),
+    box-shadow 0.35s var(--ease-spring),
+    border-color 0.3s ease,
+    background 0.3s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Dynamic Glare Overlay injected via JS */
+.card__glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+@media (hover: hover) {
+  .card:hover,
+  .dashboard-card:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 
+      0 20px 38px -10px rgba(124, 58, 237, 0.16),
+      0 8px 16px -4px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .card:hover .card__glare,
+  .dashboard-card:hover .card__glare {
+    opacity: 1;
+  }
+}
+
+/* ─── 5. MULTI-STEP 3D PROGRESS ENGINE & STEP 2 ORBITAL BADGE ────────────── */
+.stepper-container {
+  max-width: 640px;
+  margin: 0 auto var(--space-10);
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 12px 30px -8px rgba(124, 58, 237, 0.08);
+}
+
+.stepper-progress-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-5);
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stepper-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  border-radius: var(--radius-full);
+  transition: width 1s var(--ease-spring);
+  box-shadow: 0 0 14px var(--neon-violet);
+  position: relative;
+}
+
+.stepper-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  background: #ffffff;
+  filter: blur(4px);
+  border-radius: var(--radius-full);
+  animation: glowSpark 1.5s infinite alternate;
+}
+
+@keyframes glowSpark {
+  from { opacity: 0.5; }
+  to { opacity: 1; filter: blur(6px); }
+}
+
+.stepper-progress-fill.step-1 { width: 33.33%; }
+.stepper-progress-fill.step-2 { width: 66.66%; }
+.stepper-progress-fill.step-3 { width: 100%; }
+
+.stepper-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  position: relative;
+}
+
+.stepper-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  background: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  border: 2px solid var(--color-border);
+  transition: all 0.4s var(--ease-spring);
+  position: relative;
+  z-index: 2;
+}
+
+.stepper-step.completed .stepper-badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+
+/* Step 2 Orbital Pulsing Holographic Badge */
+.stepper-step.active .stepper-badge,
+.step-badge--active {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  border-color: #a78bfa;
+  color: #ffffff;
+  box-shadow: 
+    0 0 0 0 rgba(139, 92, 246, 0.7),
+    0 0 20px rgba(139, 92, 246, 0.5);
+  animation: step2OrbitalPulse 2.4s infinite var(--ease-cinematic);
+}
+
+/* Rotating Neon Orbit Ring around Step 2 */
+.stepper-step.active::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  border-top-color: #ec4899;
+  border-right-color: #8b5cf6;
+  animation: orbitalSpin 3s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes orbitalSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes step2OrbitalPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.6), 0 0 10px rgba(139, 92, 246, 0.4);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(139, 92, 246, 0), 0 0 25px rgba(236, 72, 153, 0.4);
+    transform: scale3d(1.08, 1.08, 1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0), 0 0 10px rgba(139, 92, 246, 0.4);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.stepper-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.stepper-step.active .stepper-label {
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+/* ─── 6. MAGNETIC ACTION BUTTONS WITH GLOWING AURA ──────────────────────── */
+.btn {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  transform: translate3d(0, 0, 0);
+  transition: 
+    transform 0.22s var(--ease-spring),
+    box-shadow 0.28s var(--ease-spring),
+    background 0.25s ease;
+}
+
+/* Aura Glow Effect on Hover */
+.btn--primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.28);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 
+    0 12px 28px -4px rgba(124, 58, 237, 0.45),
+    0 0 20px rgba(139, 92, 246, 0.35);
+}
+
+/* Subtle Specular Sheen across Button on Hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--ease-spring);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 200%;
+}
+
+/* Snappy Active Depression */
+.btn:active {
+  transform: scale3d(0.95, 0.95, 1) translate3d(0, 1px, 0) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition-duration: 60ms !important;
+}
+
+/* ─── 7. HOLOGRAPHIC 3D EMERGENCY SOS BUTTON ────────────────────────────── */
+.sos-btn {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at 35% 35%, #f87171 0%, #dc2626 50%, #991b1b 100%) !important;
+  border: 5px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 
+    inset 0 4px 12px rgba(255, 255, 255, 0.4),
+    inset 0 -6px 16px rgba(0, 0, 0, 0.5),
+    0 16px 36px rgba(220, 38, 38, 0.5),
+    0 0 0 0 rgba(220, 38, 38, 0.6);
+  animation: sosHolographicRipple 2.4s infinite cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Visceral multi-tier soundwave / shockwave pulse */
+@keyframes sosHolographicRipple {
+  0% {
+    box-shadow: 
+      inset 0 4px 12px rgba(255, 255, 255, 0.4),
+      inset 0 -6px 16px rgba(0, 0, 0, 0.5),
+      0 16px 36px rgba(220, 38, 38, 0.5),
+      0 0 0 0 rgba(220, 38, 38, 0.6),
+      0 0 0 0 rgba(239, 68, 68, 0.35);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    box-shadow: 
+      inset 0 4px 12px rgba(255, 255, 255, 0.45),
+      inset 0 -6px 16px rgba(0, 0, 0, 0.5),
+      0 20px 42px rgba(220, 38, 38, 0.6),
+      0 0 0 24px rgba(220, 38, 38, 0.12),
+      0 0 0 45px rgba(239, 68, 68, 0);
+    transform: scale3d(1.025, 1.025, 1);
+  }
+  100% {
+    box-shadow: 
+      inset 0 4px 12px rgba(255, 255, 255, 0.4),
+      inset 0 -6px 16px rgba(0, 0, 0, 0.5),
+      0 16px 36px rgba(220, 38, 38, 0.5),
+      0 0 0 0 rgba(220, 38, 38, 0),
+      0 0 0 0 rgba(239, 68, 68, 0);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.sos-btn:hover {
+  transform: scale3d(1.06, 1.06, 1) !important;
+  box-shadow: 
+    inset 0 4px 16px rgba(255, 255, 255, 0.6),
+    0 24px 50px rgba(220, 38, 38, 0.7),
+    0 0 35px rgba(239, 68, 68, 0.6) !important;
+}
+
+/* ─── 8. SLEEK FLOATING FORM INPUTS & CUSTOM CHECK PILLS ──────────────────── */
+.form-group--float {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+.form-group--float .form-input {
+  height: 56px;
+  padding: 1.25rem 1.15rem 0.4rem 1.15rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-base);
+  transition: all 0.28s var(--ease-spring);
+}
+
+.form-group--float .form-label {
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  pointer-events: none;
+  transform-origin: top left;
+  transition: all 0.2s var(--ease-spring);
+  margin-bottom: 0;
+}
+
+.form-group--float .form-input:focus ~ .form-label,
+.form-group--float .form-input:not(:placeholder-shown) ~ .form-label,
+.form-group--float.has-value .form-label {
+  transform: translate3d(0, -10px, 0) scale(0.76);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.form-group--float .form-input:focus {
+  background: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 
+    0 0 0 4px rgba(124, 58, 237, 0.18),
+    0 8px 24px -4px rgba(124, 58, 237, 0.12);
+}
+
+/* Custom Checkbox Pill Style */
+.form-checkbox-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-spring);
+}
+
+.form-checkbox-pill:hover {
+  border-color: var(--color-primary-light);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 6px 18px -4px rgba(124, 58, 237, 0.1);
+}
+
+/* ─── 9. STAGGERED SPRING REVEALS ────────────────────────────────────────── */
+.anim-card,
+.anim-stagger-item {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0) scale(0.98);
+  transition: 
+    opacity 0.65s var(--ease-spring),
+    transform 0.65s var(--ease-spring);
+  will-change: transform, opacity;
+}
+
+.anim-card.is-visible,
+.anim-stagger-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.stagger-1 { transition-delay: 0.06s; }
+.stagger-2 { transition-delay: 0.14s; }
+.stagger-3 { transition-delay: 0.22s; }
+.stagger-4 { transition-delay: 0.30s; }
+.stagger-5 { transition-delay: 0.38s; }
+.stagger-6 { transition-delay: 0.46s; }
+.stagger-7 { transition-delay: 0.54s; }
+.stagger-8 { transition-delay: 0.62s; }
+
+/* ─── 10. ACCESSIBILITY OVERRIDES ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .glow-orb,
+  .floating-3d-ring,
+  .sos-btn,
+  .stepper-step.active::before {
+    animation: none !important;
+  }
+
+  .card:hover,
+  .dashboard-card:hover,
+  .btn:hover,
+  .btn:active {
+    transform: none !important;
+  }
+}

@@ -4,7 +4,7 @@
 [![HTML5](https://img.shields.io/badge/Frontend-HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/Styling-CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/Logic-Vanilla--JS-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Project Status](https://img.shields.io/badge/Status-Academic%20Prototype-blue)](#-project-overview)
+[![Status](https://img.shields.io/badge/Status-Step%202%20Completed%20(Design%20System%20%26%203D%20Motion)-8b5cf6)](#-project-overview)
 
 ---
 
@@ -15,7 +15,7 @@
 The platform unifies critical safety capabilities—such as a single-tap SOS workflow, trusted contact management, real-time GPS location access, national helpline numbers, incident logging with optional anonymity, and proactive safety awareness guidelines—into a clean, mobile-first web interface.
 
 > [!NOTE]
-> **Academic Context:** SafeHer is currently developed as a **Step 1 Frontend Prototype** built using standard web technologies (HTML5, CSS3, and Vanilla JavaScript). It serves as a foundational blueprint for a full-stack production application.
+> **Academic Context & Milestones:** SafeHer has successfully completed **Step 1 (Semantic HTML5 Architecture & Core Pages)** and **Step 2 (Complete UI Design System, 3D Web Creative Depth, and 60fps Motion Graphics Engine)**. The application uses modern CSS Custom Properties (Purple/Violet brand identity, meaningful SOS red), interactive 3D perspective tilt cards with specular glare, an interactive HTML5 particle canvas, and a multi-step 3D progress stepper. It is primed for **Step 3 (JavaScript Architecture & LocalStorage Foundation)**.
 
 ---
 
@@ -199,15 +199,16 @@ SafeHer separates its **current prototype implementation** from its **planned fu
 [ User Browser ]
        │
        ├──► HTML5 Semantic Markup (Pages)
-       ├──► CSS3 Custom Properties & Responsive System (style.css / responsive.css)
+       ├──► CSS3 Custom Properties & 3D Motion System (style.css / responsive.css / animations.css)
        └──► Vanilla JavaScript Engines (ES6+)
-              ├── main.js       (Global Navigation & Utilities)
+              ├── animations.js (3D Particle Canvas, Specular Glare Tilt, Magnetic Physics)
+              ├── main.js       (Global Navigation, Utilities & Toast Notifications)
               ├── auth.js       (Form Handlers & Auth Stubs)
               ├── sos.js        (SOS Workflow & Event Handlers)
               ├── location.js   (HTML5 Geolocation API Integration)
               ├── contacts.js   (Contact Card Rendering & Handlers)
               ├── report.js     (Incident Form Submission Handler)
-              ├── validation.js (Central Validation Helper)
+              ├── validation.js (Central Validation Helper & Input Shake Controller)
               └── voice.js      (Web Speech API Feature Detection)
 ```
 
@@ -236,16 +237,24 @@ SafeHer separates its **current prototype implementation** from its **planned fu
 
 ## 🛠️ Technology Stack
 
-### Current Implementation (Frontend Prototype)
+### Current Implementation (Step 2 Completed — Design System & 3D Motion)
 
 * **Markup Language:** [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) (Semantic elements: `<main>`, `<header>`, `<nav>`, `<section>`, `<article>`, `<fieldset>`, `<aside>`)
-* **Styling Language:** [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) (CSS Variables, Flexbox, CSS Grid, Mobile-First Media Queries, Smooth Scrolling)
-* **Scripting Language:** [Vanilla JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (Strict mode `'use strict'`, DOM Manipulation, Event Handling, Window Location API)
-* **Browser Web APIs:**
+* **3D Canvas Rendering:** HTML5 Canvas 2D Context engine rendering interactive 3D particle constellations with mouse parallax depth.
+* **Styling & Design System:** [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) (CSS Custom Properties, Glassmorphism 2.0 `backdrop-filter: blur(24px)`, Flexbox, CSS Grid, Mobile-First Breakpoints).
+* **60fps GPU Motion Engine:** Hardware-accelerated transitions utilizing composite properties (`transform: perspective() rotateX() rotateY() translate3d()`, `opacity`, and `will-change`).
+* **Scripting Language:** [Vanilla JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (Strict mode `'use strict'`, DOM Manipulation, Event Handling, Window Location API, IntersectionObserver).
+* **Browser Web APIs & Engines:**
   * `navigator.geolocation` (HTML5 Geolocation API for GPS coordinate retrieval)
   * `SpeechRecognition` / `webkitSpeechRecognition` (Web Speech API feature detection)
-  * `window.localStorage` (Prepared storage fallback)
-* **Icons & Assets:** Native Unicode Emojis & Custom CSS Graphic Indicators
+  * `IntersectionObserver` (Scroll-triggered spring staggered reveals)
+  * `window.requestAnimationFrame` (Smooth 60fps 3D card tilt & particle updates)
+  * `window.localStorage` (Prepared storage fallback for Step 3)
+* **UI Micro-Systems:**
+  * Global Accessible Toast Notifications (`window.showToast`)
+  * Programmatic Input Error Shake (`window.triggerInputShake`)
+  * Multi-Step 3D Stepper Progress Controller (`window.setStepperStep`)
+* **Icons & Assets:** Native Unicode Emojis & Custom SVG Graphic Indicators
 
 ### Planned / Future Version (Full-Stack Roadmap)
 
@@ -266,8 +275,9 @@ p:\Women seffty\safeher\
 │   └── images/                 # Project images and graphics
 │       └── README.md           # Assets directory guide
 ├── css/
-│   ├── style.css               # Core CSS design tokens, reset, typography & components (33 KB)
-│   └── responsive.css          # Responsive media queries & breakpoint rules (6.8 KB)
+│   ├── style.css               # Core CSS design tokens, purple brand system & components (51 KB)
+│   ├── responsive.css          # Mobile-first responsive media queries & breakpoints (11.5 KB)
+│   └── animations.css          # 3D motion engine, glassmorphism 2.0, stepper & ripple effects (10.3 KB)
 ├── docs/
 │   └── screenshots/            # Documentation screenshots (15 high-res PNG files)
 │       ├── 01-home.png
@@ -286,27 +296,28 @@ p:\Women seffty\safeher\
 │       ├── 14-contact.png
 │       └── 15-responsive-mobile.png
 ├── js/
+│   ├── animations.js           # 60fps 3D particle canvas, specular glare tilt & magnetic buttons (6.3 KB)
 │   ├── auth.js                 # Authentication logic, submit stubs & session checks
 │   ├── contacts.js             # Emergency contacts renderer & form handling
 │   ├── location.js             # HTML5 Geolocation API caller & status handler
-│   ├── main.js                 # Mobile nav toggle, active link highlighter, smooth scroll
+│   ├── main.js                 # Mobile nav toggle, active links, smooth scroll & toast system (8.2 KB)
 │   ├── report.js               # Incident report submit handler & status manager
 │   ├── sos.js                  # One-Tap SOS emergency workflow handler
-│   ├── validation.js           # Central validation utility library (email, phone, password)
+│   ├── validation.js           # Central validation utility library (email, phone, password & shake)
 │   └── voice.js                # Web Speech API detection & voice command stubs
 ├── .gitignore                  # Git tracking rules
 ├── contact.html                # Contact and project inquiry page
 ├── contacts.html               # Emergency contacts management page
 ├── dashboard.html              # Main emergency safety dashboard
 ├── helplines.html              # Emergency helpline numbers directory
-├── index.html                  # Main project landing page
+├── index.html                  # Main project landing page with 3D canvas & stepper
 ├── location.html               # Live location sharing page
-├── login.html                  # User login page
+├── login.html                  # User login page with floating labels
 ├── profile.html                # Personal safety profile management page
 ├── register.html               # User registration page
 ├── report.html                 # Incident report submission page
 ├── safety-tips.html            # Categorized safety tips & guidelines page
-├── sos.html                    # Dedicated One-Tap SOS activation page
+├── sos.html                    # Dedicated One-Tap SOS activation page with holographic ripple
 └── README.md                   # Comprehensive project documentation
 ```
 
@@ -348,9 +359,36 @@ The following audit matrix clarifies the exact current implementation state of e
 | **Personal Profile** | `FRONTEND/DEMO` | Form layout in [`profile.html`](file:///p:/Women%20seffty/safeher/profile.html#L96-L178) | Displays static user data and alerts on save. Account settings links act as feature stubs. |
 | **Safety Tips** | `IMPLEMENTED` | Fully rendered in [`safety-tips.html`](file:///p:/Women%20seffty/safeher/safety-tips.html) | Pure static HTML/CSS resource guide. Fully functional and accessible. |
 | **Responsive Dashboard** | `IMPLEMENTED` | Layout in [`dashboard.html`](file:///p:/Women%20seffty/safeher/dashboard.html) & [`responsive.css`](file:///p:/Women%20seffty/safeher/css/responsive.css) | Adapts dynamically across mobile (375px), tablet (768px), and desktop (1280px+). |
-| **Form Validation** | `IMPLEMENTED` | Utility library in [`validation.js`](file:///p:/Women%20seffty/safeher/js/validation.js) | Validates email syntax, required strings, password length, and Indian phone numbers (+91). |
+| **Form Validation & Shake** | `IMPLEMENTED` | Handled in [`validation.js`](file:///p:/Women%20seffty/safeher/js/validation.js) & [`animations.js`](file:///p:/Women%20seffty/safeher/js/animations.js) | Validates email, password, and +91 phones with soft error shake feedback. |
+| **3D Motion Engine** | `IMPLEMENTED` | Handled in [`animations.css`](file:///p:/Women%20seffty/safeher/css/animations.css) & [`animations.js`](file:///p:/Women%20seffty/safeher/js/animations.js) | 3D particle canvas, specular glare tilt, magnetic buttons, and holographic SOS pulse. |
+| **Toast Notifications** | `IMPLEMENTED` | Utility in [`main.js`](file:///p:/Women%20seffty/safeher/js/main.js) (`showToast`) | Accessible live-region alerts for success, error, warning, and info states. |
 
 ---
+
+## 🎨 Design System & 3D Motion Architecture (Step 2)
+
+SafeHer features a complete **Design System** and **Awwwards/Apple-Grade 3D Motion Engine** built strictly using pure CSS3 and Vanilla JavaScript:
+
+### 1. Color Palette Tokens
+* **Primary Brand:** Soft Purple / Electric Violet (`--color-primary: #7c3aed`, `--color-primary-dark: #5b21b6`, `--color-primary-light: #a78bfa`). Conveys calm, trust, safety, and modern authority without inducing panic.
+* **Emergency SOS Red:** Dedicated Danger Red (`--color-sos: #dc2626`, `--color-sos-dark: #b91c1c`). **Reserved strictly** for the SOS button and genuine emergency actions to maintain high visual urgency.
+* **Status Colors:** Success Green (`#16a34a`), Warning Amber (`#d97706`), Info Blue (`#0284c7`).
+* **Glass Surfaces:** Pure white frosted glass overlays (`backdrop-filter: blur(24px) saturate(190%)`) paired with obsidian deep surfaces (`#090d16`, `#1e293b`).
+
+### 2. 3D Web & Depth Engine
+* **Interactive 3D Particle Mesh Canvas (`#hero-3d-canvas`):** A lightweight HTML5 Canvas rendering floating 3D nodes with depth scaling ($z \in [0.2, 1.0]$), mouse parallax vector attraction, and distance-decay constellation links.
+* **3D Interactive Tilt & Specular Glare:** Cards tilt dynamically up to $\pm 6.5^\circ$ (`perspective(1000px) rotateX(...) rotateY(...)`), while a dynamic radial specular glare overlay (`.card__glare`) glides across the glass surface following the cursor.
+* **Ambient Floating Geometry:** Drifting blurred neon gradient orbs (`.glow-orb--1`, `.glow-orb--2`) and a floating 3D dashed geometric ring (`.floating-3d-ring`) with 3D axis rotation.
+
+### 3. Multi-Step UX Stepper & Step 2 Orbital Halo
+* **Visual Progress Track:** Animated gradient progress fill ($0\% \to 66.6\%$) with sparkling terminal head.
+* **Step 2 Orbital Node:** Features a continuously rotating neon orbit ring (`@keyframes orbitalSpin`) and breathing holographic glow.
+
+### 4. Interactive Micro-Interactions
+* **Magnetic Action Buttons:** Proximity mouse attraction vector pull and specular sheen sweep across button surfaces.
+* **Holographic SOS Ripple:** Multi-tier shockwave ripple radiating outward in 3D perspective (`@keyframes sosHolographicRipple`).
+* **Floating Form Labels:** Smooth spring-like transformation on focus or input presence with dual-layer neon bloom.
+* **Validation Error Shake:** Programmatic horizontal shake animation (`window.triggerInputShake`) triggered by `SafeHerValidation.showFieldError`.
 
 ## 📜 JavaScript Module Audit
 

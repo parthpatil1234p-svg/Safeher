@@ -55,6 +55,10 @@ function getCurrentLocation() {
       if (statusEl) {
         statusEl.textContent = `Location retrieved: ${latitude.toFixed(5)}, ${longitude.toFixed(5)}`;
       }
+      const latEl = document.getElementById('location-lat');
+      const lngEl = document.getElementById('location-lng');
+      if (latEl) latEl.textContent = latitude.toFixed(5);
+      if (lngEl) lngEl.textContent = longitude.toFixed(5);
       // TODO (Step 4): Render on map, enable share button
       if (getBtn) {
         getBtn.disabled = false;

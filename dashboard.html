@@ -7,6 +7,7 @@
   <title>Dashboard – SafeHer</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
 
@@ -21,15 +22,14 @@
         🛡️ SafeHer
       </a>
 
-      <!-- Mobile toggle -->
+      <!-- Mobile toggle — light variant for dark header -->
       <button
-        class="nav-toggle"
+        class="nav-toggle nav-toggle--light"
         id="nav-toggle"
         aria-label="Toggle navigation menu"
         aria-expanded="false"
         aria-controls="dashboard-nav-list"
         type="button"
-        style="filter: invert(1);"
       >
         <span class="nav-toggle__bar" aria-hidden="true"></span>
         <span class="nav-toggle__bar" aria-hidden="true"></span>
@@ -39,16 +39,15 @@
       <nav aria-label="Dashboard navigation">
         <ul class="dashboard-nav__list" id="dashboard-nav-list" role="list">
           <li><a class="dashboard-nav__link" href="index.html">Home</a></li>
-          <li><a class="dashboard-nav__link active" href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a class="dashboard-nav__link" href="dashboard.html" aria-current="page">Dashboard</a></li>
           <li><a class="dashboard-nav__link" href="profile.html">Profile</a></li>
           <li>
-            <!-- Logout placeholder — will be functional in Step 3 -->
+            <!-- Logout placeholder — functional in Step 3 -->
             <button
-              class="btn btn--sm"
-              style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3);"
+              class="btn btn--sm btn--outline-white"
               type="button"
-              aria-label="Logout — not yet functional in this prototype"
-              onclick="alert('Demo: Logout will be implemented with Flask backend in Step 3.')"
+              id="logout-btn"
+              aria-label="Logout of demo session"
             >
               Logout
             </button>
@@ -64,48 +63,55 @@
   <main id="main-content">
 
     <!-- ── DASHBOARD HERO / SOS SECTION ─────────────────────────── -->
-    <section
-      class="section--sm"
-      style="background: linear-gradient(135deg, var(--color-secondary-dark) 0%, #2e3a6e 100%); color: white;"
-      aria-labelledby="dashboard-greeting"
-    >
-      <div class="container text-center">
-        <h1 id="dashboard-greeting" style="color: white; margin-bottom: var(--space-2); font-size: var(--font-size-2xl);">
-          Your Safety Dashboard
+    <section class="dashboard-hero anim-enter" style="position: relative; overflow: hidden;" aria-labelledby="dashboard-greeting">
+      <!-- Ambient 3D Neon Glow Orbs -->
+      <div class="ambient-glow-mesh" aria-hidden="true">
+        <div class="glow-orb glow-orb--1" style="opacity: 0.25; top: -20%; left: 10%;"></div>
+        <div class="glow-orb glow-orb--2" style="opacity: 0.25; bottom: -20%; right: 10%;"></div>
+      </div>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <!-- Demo mode badge -->
+        <div class="text-center mb-4">
+          <span class="demo-badge">⚙️ Demo Mode — Frontend Prototype</span>
+        </div>
+
+        <h1 class="dashboard-hero__greeting" id="dashboard-greeting">
+          Welcome to SafeHer
         </h1>
-        <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--space-8);">
-          Access all your safety tools quickly. In an emergency, tap SOS first.
+        <p class="dashboard-hero__subtitle">
+          Your emergency tools are ready when you need them.
         </p>
 
-        <!-- Prominent SOS Button — highest priority visual element -->
+        <!-- Prominent SOS Button -->
         <div class="sos-btn-wrap">
           <a
             href="sos.html"
             class="sos-btn"
-            aria-label="Activate SOS emergency assistance"
-            role="button"
+            aria-label="Activate SOS emergency assistance — demo mode only"
           >
             <span aria-hidden="true">SOS</span>
             <span class="sos-btn__label">Tap to Activate</span>
           </a>
-          <p style="color: rgba(255,255,255,0.7); font-size: var(--font-size-xs); max-width: 280px;">
-            This will activate the emergency workflow and alert your trusted contacts.
+          <p class="dashboard-hero__sos-note">
+            Demo mode: This will navigate to the SOS preview page.
+            Real emergency workflow will be implemented with Flask backend.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ── EMERGENCY READINESS STATUS ──────────────────────────── -->
-    <section class="section--sm" style="background-color: var(--color-bg-secondary);" aria-labelledby="readiness-heading">
+    <section class="section--sm readiness-section" aria-labelledby="readiness-heading">
       <div class="container">
-        <h2 id="readiness-heading" style="font-size: var(--font-size-lg); margin-bottom: var(--space-5); color: var(--color-secondary-dark);">
+        <h2 class="readiness-section__title" id="readiness-heading">
           ⚡ Emergency Readiness
         </h2>
 
         <div class="grid grid--3" role="list" aria-label="Emergency readiness indicators">
 
           <div class="status-indicator" role="listitem">
-            <span class="status-dot status-dot--yellow" aria-hidden="true"></span>
+            <span class="status-dot status-dot--yellow status-dot--pulse" aria-hidden="true"></span>
             <span class="status-indicator__label">Emergency Contacts</span>
             <span class="status-indicator__value">
               <a href="contacts.html" class="text-primary" style="font-size: var(--font-size-xs);">
@@ -115,8 +121,8 @@
           </div>
 
           <div class="status-indicator" role="listitem">
-            <span class="status-dot status-dot--grey" aria-hidden="true"></span>
-            <span class="status-indicator__label">Location Permission</span>
+            <span class="status-dot status-dot--grey status-dot--pulse" aria-hidden="true"></span>
+            <span class="status-indicator__label">Location Access</span>
             <span class="status-indicator__value">
               <a href="location.html" class="text-primary" style="font-size: var(--font-size-xs);">
                 Enable →
@@ -128,30 +134,30 @@
             <span class="status-dot status-dot--grey" aria-hidden="true"></span>
             <span class="status-indicator__label">Voice Activation</span>
             <span class="status-indicator__value">
-              <span class="text-muted" style="font-size: var(--font-size-xs);">Coming Soon</span>
+              <span class="badge badge--neutral">Step 4</span>
             </span>
           </div>
 
         </div>
 
         <p class="text-muted mt-4" style="font-size: var(--font-size-xs);">
-          These are placeholder statuses. Real-time status will be implemented in Step 3.
+          Placeholder statuses — real-time status tracking will be implemented in Step 3.
         </p>
       </div>
     </section>
 
     <!-- ── FEATURE CARDS GRID ────────────────────────────────────── -->
-    <section class="section--sm" aria-labelledby="features-heading">
+    <section class="section--sm" aria-labelledby="tools-heading">
       <div class="container">
-        <h2 id="features-heading" style="font-size: var(--font-size-lg); margin-bottom: var(--space-5); color: var(--color-secondary-dark);">
+        <h2 class="readiness-section__title" id="tools-heading">
           🧰 All Safety Tools
         </h2>
 
         <div class="dashboard-grid" role="list">
 
-          <!-- SOS — highest priority -->
+          <!-- SOS — highest priority, red gradient card -->
           <a
-            class="dashboard-card dashboard-card--sos"
+            class="dashboard-card dashboard-card--sos anim-card stagger-1"
             href="sos.html"
             role="listitem"
             aria-label="SOS Emergency — activate emergency assistance"
@@ -162,18 +168,20 @@
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-2"
             href="dashboard.html"
             role="listitem"
-            aria-label="Voice Activation — trigger SOS by voice"
+            aria-label="Voice Activation — trigger SOS by voice (coming in Step 4)"
           >
             <span class="dashboard-card__icon" aria-hidden="true">🎙️</span>
             <span class="dashboard-card__title">Voice Activation</span>
-            <span class="dashboard-card__desc">Coming in Step 4</span>
+            <span class="dashboard-card__desc">
+              <span class="badge badge--neutral">Step 4</span>
+            </span>
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-3"
             href="contacts.html"
             role="listitem"
             aria-label="Emergency Contacts — manage your trusted contacts"
@@ -184,7 +192,7 @@
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-4"
             href="location.html"
             role="listitem"
             aria-label="Live Location — share your location"
@@ -195,7 +203,7 @@
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-5"
             href="helplines.html"
             role="listitem"
             aria-label="Emergency Helplines — view emergency numbers"
@@ -206,7 +214,7 @@
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-6"
             href="report.html"
             role="listitem"
             aria-label="Incident Report — document an incident"
@@ -217,7 +225,7 @@
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-7"
             href="safety-tips.html"
             role="listitem"
             aria-label="Safety Tips — read personal safety guidance"
@@ -228,7 +236,7 @@
           </a>
 
           <a
-            class="dashboard-card"
+            class="dashboard-card anim-card stagger-8"
             href="profile.html"
             role="listitem"
             aria-label="My Profile — manage your safety profile"
@@ -258,18 +266,21 @@
 
   </main>
 
-  <!-- Footer (simplified for dashboard) -->
-  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-6) 0; text-align: center;" role="contentinfo">
+  <!-- Dashboard simplified footer -->
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p class="text-muted" style="font-size: var(--font-size-xs);">
-        &copy; <span id="current-year">2024</span> SafeHer — Academic Mini Project |
-        <a href="index.html" style="color: var(--color-primary);">Home</a> |
-        <a href="contact.html" style="color: var(--color-primary);">Contact</a>
-      </p>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">
+          &copy; <span id="current-year">2024</span> SafeHer — Academic Mini Project |
+          <a class="site-footer__link" href="index.html">Home</a> |
+          <a class="site-footer__link" href="contact.html">Contact</a>
+        </p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
 
 </body>
 </html>

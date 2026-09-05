@@ -88,6 +88,13 @@ function showFieldError(formGroup, message) {
     errorEl.textContent = message;
     errorEl.style.display = 'block';
   }
+  const inputEl = formGroup.querySelector('.form-input, .form-select, .form-textarea');
+  if (inputEl) {
+    inputEl.setAttribute('aria-invalid', 'true');
+    if (typeof window.triggerInputShake === 'function') {
+      window.triggerInputShake(inputEl);
+    }
+  }
 }
 
 /**

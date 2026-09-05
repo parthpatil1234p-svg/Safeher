@@ -7,6 +7,7 @@
   <title>SOS Emergency – SafeHer</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
 
@@ -45,7 +46,7 @@
       </div>
     </div>
 
-    <section class="section--sm" aria-labelledby="sos-heading">
+    <section class="section--sm anim-enter" aria-labelledby="sos-heading">
       <div class="container">
 
         <!-- Prototype Disclaimer — PROMINENTLY placed -->
@@ -58,7 +59,7 @@
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start;">
+        <div class="two-col">
 
           <!-- SOS Activation -->
           <div>
@@ -193,17 +194,20 @@
 
   </main>
 
-  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: var(--space-4) 0; text-align: center;" role="contentinfo">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p class="text-muted" style="font-size: var(--font-size-xs);">
-        &copy; <span id="current-year">2024</span> SafeHer — Academic Prototype |
-        <a href="dashboard.html" style="color: var(--color-primary);">Dashboard</a>
-      </p>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">
+          &copy; <span id="current-year">2024</span> SafeHer — Academic Prototype |
+          <a class="site-footer__link" href="dashboard.html">Dashboard</a>
+        </p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
   <script src="js/sos.js" defer></script>
+  <script src="js/animations.js" defer></script>
 
 </body>
 </html>
