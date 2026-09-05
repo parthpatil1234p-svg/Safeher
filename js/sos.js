@@ -27,14 +27,40 @@
 
 const SOS_DEMO_DURATION_MS = 3000; // Demo countdown in milliseconds
 
+// Handle for the pending auto-reset countdown, so a manual cancel
+// can stop it before it fires (and stale timers never stack).
+let sosCountdownTimer = null;
+
+/**
+ * Resets the SOS button and hides the cancel control.
+ * Does NOT touch the status message — callers decide the wording.
+ */
+function resetSosUi() {
+  const sosBtn    = document.getElementById('sos-button');
+  const cancelBtn = document.getElementById('sos-cancel');
+
+  if (sosBtn) {
+    sosBtn.disabled = false;
+    sosBtn.removeAttribute('aria-disabled');
+    sosBtn.innerHTML = '<span aria-hidden="true">SOS</span><span class="sos-btn__label">Hold to Activate</span>';
+  }
+
+  if (cancelBtn) {
+    cancelBtn.classList.add('hidden');
+  }
+}
+
 /**
  * Activates the demo SOS workflow.
  * Shows feedback that SOS was triggered — does NOT contact real services.
  */
 function activateDemoSOS() {
-  const statusEl   = document.getElementById('sos-status');
-  const sosBtn     = document.getElementById('sos-button');
-  const cancelBtn  = document.getElementById('sos-cancel');
+  const statusEl  = document.getElementById('sos-status');
+  const sosBtn    = document.getElementById('sos-button');
+  const cancelBtn = document.getElementById('sos-cancel');
+
+  // Safety guard — ignore clicks while an SOS workflow is already running
+  if (sosCountdownTimer !== null) return;
 
   if (statusEl) {
     statusEl.textContent = '⚠️ Demo SOS activated — emergency workflow initialised (prototype only).';
@@ -52,8 +78,9 @@ function activateDemoSOS() {
   }
 
   // Auto-reset after demo duration (simulates countdown)
-  setTimeout(() => {
-    cancelDemoSOS();
+  sosCountdownTimer = setTimeout(() => {
+    sosCountdownTimer = null;
+    resetSosUi();
     if (statusEl) {
       statusEl.textContent = 'Demo SOS countdown completed. No emergency services were contacted.';
       statusEl.className   = 'alert alert--info';
@@ -68,23 +95,17 @@ function activateDemoSOS() {
  * Cancels the demo SOS.
  */
 function cancelDemoSOS() {
+  // Stop the pending auto-reset so it cannot overwrite this cancelled state
+  clearTimeout(sosCountdownTimer);
+  sosCountdownTimer = null;
+
   const statusEl  = document.getElementById('sos-status');
-  const sosBtn    = document.getElementById('sos-button');
-  const cancelBtn = document.getElementById('sos-cancel');
+
+  resetSosUi();
 
   if (statusEl) {
     statusEl.textContent = 'SOS cancelled. You are safe.';
     statusEl.className   = 'alert alert--success';
-  }
-
-  if (sosBtn) {
-    sosBtn.disabled = false;
-    sosBtn.removeAttribute('aria-disabled');
-    sosBtn.innerHTML = '<span>SOS</span><span class="sos-btn__label">Hold to Activate</span>';
-  }
-
-  if (cancelBtn) {
-    cancelBtn.classList.add('hidden');
   }
 }
 

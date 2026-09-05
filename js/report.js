@@ -37,9 +37,10 @@ function handleReportSubmit(e) {
 
   // Basic check that required fields are present
   const incidentType = form.querySelector('#incident-type')?.value;
+  const incidentDate = form.querySelector('#incident-date')?.value;
   const description  = form.querySelector('#incident-description')?.value.trim();
 
-  if (!incidentType || !description) {
+  if (!incidentType || !incidentDate || !description) {
     if (statusEl) {
       statusEl.textContent = 'Please fill in all required fields before submitting.';
       statusEl.className   = 'alert alert--danger';

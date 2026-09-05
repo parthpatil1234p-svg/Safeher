@@ -1897,8 +1897,18 @@ p:last-child { margin-bottom: 0; }
   align-items: start;
 }
 
+/* Content-heavy wide splits — stacked on mobile/tablet, expanded on desktop
+   (see responsive.css). Ratios: wide = 1.5:1, 2-3 = 1:1.5, 1-2 = 1:2. */
 .two-col--wide {
   grid-template-columns: 3fr 2fr;
+}
+
+.two-col--2-3 {
+  grid-template-columns: 2fr 3fr;
+}
+
+.two-col--1-2 {
+  grid-template-columns: 1fr 2fr;
 }
 
 /* ─── 38. LOCATION STAT CARD ────────────────────────── */

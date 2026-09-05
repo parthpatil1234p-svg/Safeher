@@ -109,6 +109,10 @@ function clearFieldError(formGroup) {
     errorEl.textContent = '';
     errorEl.style.display = 'none';
   }
+  const inputEl = formGroup.querySelector('.form-input, .form-select, .form-textarea');
+  if (inputEl) {
+    inputEl.removeAttribute('aria-invalid');
+  }
 }
 
 /* ─── Export ─────────────────────────────────────────────────────────── */

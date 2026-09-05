@@ -180,7 +180,9 @@
 
   /* ── Two column ── */
   .two-col,
-  .two-col--wide {
+  .two-col--wide,
+  .two-col--2-3,
+  .two-col--1-2 {
     grid-template-columns: 1fr;
   }
 
@@ -372,7 +374,9 @@
 
   /* ── Two column ── */
   .two-col,
-  .two-col--wide {
+  .two-col--wide,
+  .two-col--2-3,
+  .two-col--1-2 {
     grid-template-columns: 1fr;
   }
 
@@ -428,7 +432,9 @@
   }
 
   /* Two col — stacks on narrow tablet */
-  .two-col--wide {
+  .two-col--wide,
+  .two-col--2-3,
+  .two-col--1-2 {
     grid-template-columns: 1fr;
   }
 
@@ -490,6 +496,14 @@
 
   .two-col--wide {
     grid-template-columns: 3fr 2fr;
+  }
+
+  .two-col--2-3 {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .two-col--1-2 {
+    grid-template-columns: 1fr 2fr;
   }
 
 }
